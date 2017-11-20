@@ -27,9 +27,6 @@ class BunkersController < ApplicationController
   def create
     @bunker = Bunker.new(bunker_params)
     @bunker.user = current_user
-    puts @bunker.valid?
-    puts @bunker.location
-    puts @bunker.errors.full_messages
     respond_to do |format|
       if @bunker.save
         format.html { redirect_to @bunker, notice: 'Bunker was successfully created.' }
