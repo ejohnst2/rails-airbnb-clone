@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'locations/new'
-
-  get 'locations/create'
-
-  get 'locations/edit'
-
-  get 'locations/update'
-
   devise_for :users
   resources :bunkers
   root to: 'pages#home'
