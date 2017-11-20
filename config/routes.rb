@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'trips/create'
+
+  get 'trips/update'
+
+  get 'trips/destroy'
+
   devise_for :users
   resources :bunkers
   root to: 'pages#home'
