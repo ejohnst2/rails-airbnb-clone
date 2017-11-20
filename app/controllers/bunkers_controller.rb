@@ -15,6 +15,7 @@ class BunkersController < ApplicationController
   # GET /bunkers/new
   def new
     @bunker = Bunker.new
+    @bunker.build_location
   end
 
   # GET /bunkers/1/edit
@@ -25,7 +26,10 @@ class BunkersController < ApplicationController
   # POST /bunkers.json
   def create
     @bunker = Bunker.new(bunker_params)
-
+    @bunker.user = current_user
+    puts @bunker.valid?
+    puts @bunker.location
+    puts @bunker.errors.full_messages
     respond_to do |format|
       if @bunker.save
         format.html { redirect_to @bunker, notice: 'Bunker was successfully created.' }
@@ -69,6 +73,6 @@ class BunkersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bunker_params
-      params.require(:bunker).permit(:user, :price, :location_id, :review_id)
+      params.require(:bunker).permit(:user, :price, :size, location_attributes: [:country, :city, :number, :street_name, :zip, :latitude, :longitude])
     end
 end
