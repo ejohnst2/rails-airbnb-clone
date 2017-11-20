@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bunker.user %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @bunker.price %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @bunker.location %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @bunker.review %>
+</p>
+
+<%= link_to 'Edit', edit_bunker_path(@bunker) %> |
+<%= link_to 'Back', bunkers_path %>
