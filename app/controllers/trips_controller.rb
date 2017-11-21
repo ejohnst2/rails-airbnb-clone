@@ -30,6 +30,10 @@ class TripsController < ApplicationController
   def show
   end
 
+  def index
+    @my_trips = current_user.trips
+  end
+
   def destroy
     @trip.destroy
   end
