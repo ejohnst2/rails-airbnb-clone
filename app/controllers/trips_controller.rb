@@ -31,7 +31,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @my_trips = current_user.trips
+    @trips = current_user.trips
   end
 
   def destroy
