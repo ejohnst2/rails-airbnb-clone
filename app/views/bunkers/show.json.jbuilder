@@ -1,1 +1,1 @@
-json.partial! "bunkers/bunker", bunker: @bunker
+ json.partial! "bunkers/bunker", bunker: @bunker

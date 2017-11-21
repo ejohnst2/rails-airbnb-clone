@@ -1,10 +1,79 @@
-<p id="notice"><%= notice %></p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @bunker.user %>
-</p>
+<a class="btn btn-primary btn-lg">Book Now</a>
+<!-- <div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      <img data-src="holder.js/100%x180" alt="...">
+    </a>
+  </div>
+</div> -->
 
+
+
+<!-- Description of Bunker -->
+<div class="container">
+<div class="page-header">
+  <h1>Bunker One<small>The World's Best Bunker in Minesota</small></h1>
+  <h3>
+    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Farm</font></font></span>
+    <span class="divider"></span>
+    <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bali, </font></font></a>
+    <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indonesia</font></font></a>
+  </h3>
+</div>
+
+<!-- <div class="container"> -->
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
+  <div class="row text_center clear">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
+      </div>
+    </div>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+    <div class="listing_item">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
+      </div>
+    </div>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+    <div class="listing_item">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
+      </div>
+    </div>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+    <div class="listing_item">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
+    </div>
+  </div>
+<!-- Features and Additional of Bunker -->
+<div class="container-mock">
+  <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Details</font></font></h2>
+
+  <span class="divider"></span>
 <p>
   <strong>Price:</strong>
   <%= @bunker.price %>
@@ -20,5 +89,10 @@
   <%= @bunker.location %>
 </p>
 
-<%= link_to 'Edit', edit_bunker_path(@bunker) %> |
+<p><strong>What to Expect:</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+</div>
+
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_bunker_path(@bunker) %>
 <%= link_to 'Back', bunkers_path %>
