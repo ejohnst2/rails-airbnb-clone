@@ -115,7 +115,7 @@
     <p><%= bunker.description %></p>
   </div>
     <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/anyuser">
-  <a class="card-link" href="#" ></a>
+    <%= link_to '', bunker_path(bunker), { :class=>"card-link" } %>
 </div>
     </div>
 <%end %>
@@ -123,7 +123,8 @@
 </div>
 <br>
 <br>
-<center>    <a href="#" class="button">Book a Bunker Now <i class="icon-chevron-right"></i></a>
+<center>    <%= link_to "List all Bunkers", bunkers_path, { :class => "button" } %>
+  <!-- <i class="icon-chevron-right"></i> -->
 </center>
 </div>
     </div>
