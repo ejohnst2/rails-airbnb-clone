@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :trips, only: [:create]
   end
 
-  resources :trips, only: [:update, :edit, :destroy, :show, :index]
+  resources :trips, only: [:update, :edit, :destroy, :show, :index] do
+    member do
+      get 'confirmation'
+    end
+  end
 
   resources :conversations do
     resources :messages
