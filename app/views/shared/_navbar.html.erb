@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="<%= yield(:sticky_navbar).nil? ? 'navbar-wagon-sticky' : yield(:sticky_navbar) %> navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "newlogo.png" %>

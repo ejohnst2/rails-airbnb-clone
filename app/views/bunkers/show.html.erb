@@ -1,3 +1,6 @@
+<% content_for(:sticky_navbar) do %>
+<% end %>
+
 <!-- Carousel -->
 
 <%= render 'picture_carousel' %>
@@ -8,38 +11,37 @@
 
 <!-- Description of Bunker -->
 
-<!-- just for testing purposes - please delete and add to sticky menu -->
-<%= link_to "Book Now", booking_path, { :class => "btn-default text-center" } %>
-
 <div class="container">
+  <div class="row">
   <div class="page-header">
     <h1><%= @bunker.name %><small><%= @bunker.description %></small></h1>
     <h3>
-      <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Farm</font></font></span>
+      <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Arctic</font></font></span>
       <span class="divider"></span>
-      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bali</font></font></a>
-      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indonesia</font></font></a>
+      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%= @bunker.location.city %></font></font></a>
+      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%= @bunker.location.country %></font></font></a>
     </h3>
   </div>
 </div>
+
 <% if @bunker.user.id != current_user.id %>
   <div class=”divider btn-default”>
     <%= @bunker.user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
   </div>x
 <% end %>
 
-<div class="container">
   <div class="row">
    <p id="DescriptionFor"><%= @bunker.description %></p>
  </div>
-
 
  <!-- Features of Bunker -->
 
  <div class="row">
   <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
-  <div class="row text_center clear">
-
+</div>
+<!--   <div class="row text_center clear">
+ -->
+ <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
       <div class="listing_item">
         <i class="fa fa-bed icon" aria-hidden="true"></i>
@@ -49,38 +51,39 @@
     </div>
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
       <div class="listing_item">
-        <i class="fa fa-bed icon" aria-hidden="true"></i>
-        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
+        <i class="fa fa-wifi icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Internet</font></font></h5>
         <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
       <div class="listing_item">
-        <i class="fa fa-bed icon" aria-hidden="true"></i>
-        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
+        <i class="fa fa-tint icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fresh Water Supply</font></font></h5>
         <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
       <div class="listing_item">
         <i class="fa fa-bed icon" aria-hidden="true"></i>
-        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Backup Generator</font></font></h5>
         <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
       <div class="listing_item">
-        <i class="fa fa-bed icon" aria-hidden="true"></i>
-        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
+        <i class="fa fa-cutlery icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Robot Chef</font></font></h5>
         <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
       <div class="listing_item">
-        <i class="fa fa-bed icon" aria-hidden="true"></i>
-        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
+        <i class="fa fa-thermometer-three-quarters icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Heating</font></font></h5>
         <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
       </div>
+    </div>
     </div>
 
     <div class="row">
@@ -93,9 +96,8 @@
       <h2>Where is it</h2>
       <p id="LocationFor"><strong>Location: </strong><%= @bunker.location.longitude %>, <%= @bunker.location.latitude %>, <%= @bunker.location.country %></p>
     </div>
-
-  </div>
-</div>
+<!--   </div>
+ --></div>
 </div>
 
 

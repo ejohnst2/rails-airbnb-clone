@@ -1,18 +1,30 @@
 <div class="container">
-  <h1>Reservation Confirmed!!</h1>
-  <p id="notice"><%="At Bunker #{@trip.bunker_id}"=%></p>
-<div class="container">
+
   <div class="row">
-    <p>
-      <p><%= "Dear Client #{@trip.user.first_name} #{@trip.user.last_name} welcome to Bunker bnb!!" %></p>
-
-      <p><%= "Booking date: #{@trip.booking_date}"%></p>
-      <p><%= "Check in date: #{@trip.start_date}" %></p>
-      <p><%= "Check out date: #{@trip.end_date}" %></p>
-      <p><%= "#{ (@trip.end_date - @trip.start_date).to_i} nigths" %></p>
-      <p><%= "1 day price = $#{@trip.bunker.price}"=%></p>
-      <p><%= "Total = $#{@trip.bunker.price  *  (@trip.end_date - @trip.start_date).to_i}" %></p>
-
-    </p>
+    <h2>Your booking at <%= link_to @trip.bunker.name, bunker_path(@trip.bunker) %> has been sent to host for approval</h2>
   </div>
+
+  <div class="wrapper" id="itinerary">
+
+    <div class="col-md-6">
+        <div class="centered-item">
+          <h4>Booking date:  <%= @trip.booking_date %></h4>
+          <h4>Check in date: <%= @trip.start_date %></h4>
+          <h4>Check out date:  <%= @trip.end_date %></h4>
+          <h4>Length of Stay: <%= (@trip.end_date - @trip.start_date).to_i %> nights</h4>
+          <h4>Nightly Price: <%=@trip.bunker.price %></h4>
+          <h4>Booking Total: <%= @trip.bunker.price  *  (@trip.end_date - @trip.start_date).to_i %></h4>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+      <%= cl_image_tag @trip.bunker.photos.first.path %>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <h3>Thanks <%= @trip.user.first_name %> for choosing Thrivalist! We have sent a confirmation to <%= @trip.user.email %>.</h3>
+  </div>
+
 </div>
