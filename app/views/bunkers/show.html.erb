@@ -74,8 +74,6 @@
 </div>
 </div>
 
-
-
 <div class="container">
 <div class="page-header">
   <h1>Bunker One<small>The World's Best Bunker in Minesota</small></h1>
@@ -175,6 +173,17 @@
 
 <p id="notice"><%= notice %></p>
 <%= link_to 'Edit', edit_bunker_path(@bunker) %>
+<p>
+  <strong>Location:</strong>
+  <%= @bunker.location.longitude %>, <%= @bunker.location.latitude %>, <%= @bunker.location.country %>
+</p>
+
+<% @bunker.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_bunker_path(@bunker) %> |
 <%= link_to 'Back', bunkers_path %>
 
 <% content_for(:after_js) do %>

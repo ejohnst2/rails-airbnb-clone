@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+  <div id="wrapper">
+    <div class="container" id="">
+      <div class="row">
+
+        <% @trips.each do |trip| %>
+        <div class=" thumbnail thumb-shadow col-xs-6 col-sm-3">
+          <div class="card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%# cl_image_path trip.safe_photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category">Trips</div>
+          <div class="card-description">
+            <h2><%= trip.user_id %></h2>
+            <p></p>
+          </div>
+
+          <%= link_to '', trip_path(trip), class: 'card-link', id: 'img-thumbnail' %>
+        </div>
+        <%= link_to 'Edit', edit_trip_path(trip) %>
+        <%= link_to 'Delete', trip_path(trip), method: :delete %>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
