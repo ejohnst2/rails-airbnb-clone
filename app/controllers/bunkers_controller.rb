@@ -10,6 +10,7 @@ class BunkersController < ApplicationController
   # GET /bunkers/1
   # GET /bunkers/1.json
   def show
+    @trip = Trip.new
   end
 
   # GET /bunkers/new
