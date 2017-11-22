@@ -11,9 +11,10 @@
     <!-- Links -->
     <% if user_signed_in? %>
 
-
-      <%= link_to "Bunkers", bunkers_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Host people during the apocalypse", new_bunker_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%#= link_to "Bunkers", bunkers_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", trips_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

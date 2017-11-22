@@ -63,8 +63,9 @@
         <td><%= bunker.price %></td>
         <td><%= bunker.location.country %></td>
         <td><%= link_to 'Show', bunker %></td>
-        <td><%= link_to 'Edit', edit_bunker_path(bunker) %></td>
-        <td><%= link_to 'Destroy', bunker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Edit', edit_bunker_path(bunker) %></td> -->
+        <!-- <td><%#= link_to 'Send message', new_bunker_message_path(bunker.id) %></td> -->
+        <!-- <td><%#= link_to 'Destroy', bunker, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -72,3 +73,4 @@
 
 <br>
  -->
+<%= link_to 'Prepare the world become a bunker host', new_bunker_path %>
