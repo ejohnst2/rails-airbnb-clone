@@ -1,19 +1,64 @@
+<br>
+<br>
+
 <div id="slideshow">
-<div id="slideimg0" class="slide showMe" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://viralmozo.com/wp-content/uploads/2015/05/natural-disasters.jpg')">
+<div id="slideimg0" class="slide-home showMe" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://viralmozo.com/wp-content/uploads/2015/05/natural-disasters.jpg')">
     <div class="banner-content">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
    <h1>Thrivalist</h1>
     <p>When life goes wrong, will you thrive?</p>
   </div>
 </div>
 
-<div id="slideimg1" class="slide" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.businessinsider.com/image/550c7c50eab8eadd1bb5030c/image.jpg')">
+<div id="slideimg1" class="slide-home" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.businessinsider.com/image/550c7c50eab8eadd1bb5030c/image.jpg')">
     <div class="banner-content">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     <h1>Thrivalist</h1>
     <p>When life goes wrong, will you thrive?</p>
   </div>
 </div>
-<div id="slideimg2" class="slide" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.pbs.org/newshour/app/uploads/2015/01/RTR4IV65.jpg')">
+<div id="slideimg2" class="slide-home" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.pbs.org/newshour/app/uploads/2015/01/RTR4IV65.jpg')">
     <div class="banner-content">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     <h1>Thrivalist</h1>
     <p>When life goes wrong, will you thrive?</p>
 <!--     <a href="#" class="btn-white">Book a Bunker Now</a>
@@ -21,45 +66,101 @@
 </div>
 </div>
 </div>
+<div class="information">
+  <br>
+  <br>
+  <center><h1 class="highlight">Secure Your Future</h1><center>
+    <br>
+    <br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="https://d30y9cdsu7xlg0.cloudfront.net/png/74742-200.png">
+</div>
+
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="https://maxcdn.icons8.com/Android_L/PNG/512/Gaming/sniper_rifle-512.png">
+</div>
+
+    <div class="col-xs-12 col-sm-4">
+      <img class="icon" src="http://i.bnet.com/blogs/biohazard_symbol.png">
+</div>
+
+</div>
+</div>
+<br>
+<br>
+  <h4 class="highlighter">Survive a state of emergency, man-made disaster or apocalyptic situation.</h4>
+  <br>
+  </div>
 <div class="parallax">
 
 <br>
 <br>
-    <center><h1>Suceed in Uncertainty</h1>
-<h3>Book a Bunker Now</h3>
-    </center>
+  <center>
+    <h1 class="highlight1">Choose the Safest Locations</h1>
+    <br>
+<!--     <h3 class="btn-white">Book a Bunker Now</h3>
+ -->  </center>
 
-<br>
 
 <div class="container">
   <div class="row">
+    <% @bunkers.each do |bunker| %>
     <div class="col-xs-12 col-sm-4">
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://media-cdn.tripadvisor.com/media/photo-s/04/a9/3c/31/honfleur-harbour.jpg');">
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path bunker.photos[0].path %>');">
+    <div class="card-category">NEWEST</div>
   <div class="card-description">
-    <h2>Honfleur Bunker</h2>
-    <p>Former Air Raid Shelter</p>
+    <h2><%= bunker.name %></h2>
+    <p><%= bunker.description %></p>
   </div>
+    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/anyuser">
+  <a class="card-link" href="#" ></a>
+</div>
+    </div>
+<%end %>
+
+</div>
+<br>
+<br>
+<center>    <a href="#" class="button">Book a Bunker Now <i class="icon-chevron-right"></i></a>
+</center>
 </div>
     </div>
 
-    <div class="col-xs-12 col-sm-4">
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.villavals.ch/img/slides/F16.jpg');">
-  <div class="card-description">
-    <h2>Villa Vals</h2>
-    <p>All-Equipped Underground Vacation Home</p>
-  </div>
-    </div>
-  </div>
+<% content_for(:after_js) do %>
+  <script>
+    var timer = setInterval(nextImage, 4000);
+    var curImage = 0;
+    var numImages = 3;
 
-      <div class="col-xs-12 col-sm-4">
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://flavorwire.files.wordpress.com/2012/09/bremen1.jpg');">
-  <div class="card-description">
-    <h2>Bunker F38</h2>
-    <p>Thick Walls Bomb Resistant</p>
-  </div>
-    </div>
-  </div>
-</div>
+    function nextImage() {
+      var e;
+      // remove showMe class from current image
+      e = document.getElementById("slideimg" + curImage);
+      removeClass(e, "showMe");
 
-</div>
-    </div>
+      // compute next image
+      curImage++;
+      if (curImage > numImages - 1) {
+          curImage = 0;
+      }
+
+      // add showMe class to next image
+      e = document.getElementById("slideimg" + curImage);
+      addClass(e, "showMe");
+    }
+
+    function addClass(elem, name) {
+      var c = elem.className;
+      if (c) c += " ";  // if not blank, add a space separator
+      c += name;
+      elem.className = c;
+    }
+
+    function removeClass(elem, name) {
+      var c = elem.className;
+      elem.className = c.replace(name, "").replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "");  // remove name and extra blanks
+    }
+  </script>
+<% end %>

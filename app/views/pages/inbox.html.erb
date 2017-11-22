@@ -1,0 +1,28 @@
+<%= inbox_data = [{ avatar: "https://kitt.lewagon.com/placeholder/users/gabriel-dehan", first_name: "Gab", last_name: "Dehan", date_sent: "10/11/17", message_header: "I am not sure yet", message_content: "I am not sure yet! I might be in Shanghai at this moment..can I tell you later?", status: "Pending", price: "EUR 345"}, {avatar: "https://kitt.lewagon.com/placeholder/users/gabriel-dehan", first_name: "Gab", last_name: "Dehan", date_sent: "10/11/17", message_header: "I am not sure yet", message_content: "I am not sure yet! I might be in Shanghai at this moment..can I tell you later?", status: "Seen", price: "EUR 345"}] %>
+
+
+<div class="container">
+  <% inbox_data.each do |message_element| %>
+    <div class="message">
+      <%= image_tag message_element[:avatar], :class => "avatar-large" %>
+      <div class="message-name">
+        <h3><%= "#{message_element[:first_name]} #{message_element[:last_name]}" %></h3>
+        <p><%= message_element[:date_sent] %></p>
+      </div>
+      <div class="message-body">
+        <p><strong><%= message_element[:message_header] %></strong></p>
+        <p>
+          <%= message_element[:message_content] %>
+        </p>
+      </div>
+      <div class="message-status">
+        <% if message_element[:status] == "Pending"%>
+          <p class="status pending"><%= message_element[:status] %></p>
+        <% else %>
+          <p><%= message_element[:status] %></p>
+        <% end %>
+        <p class="price"><%= message_element[:price] %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
