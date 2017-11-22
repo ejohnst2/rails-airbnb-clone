@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'country_select'
 gem 'uglifier'
 gem 'devise'
+gem 'sticky-rails'
 gem 'omniauth-facebook'
 
 group :development, :test do
