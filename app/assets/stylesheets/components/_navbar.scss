@@ -6,11 +6,6 @@
   padding: 0px 30px;
   display: flex;
   align-items: center;
-  position: fixed;
-  // Monkey patch!
-  z-index:10;
-  // Monkey patch!
-  width:100%;
   justify-content: space-between;
   background-image: url("http://www.stainlessaquatics.com/wp-content/uploads/2014/01/steel-stainless-background-lt.png");
   background: -webkit-linear-gradient(#ffffff 0%, #dfdfdf 100%);
@@ -19,6 +14,11 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
 }
 
+.navbar-wagon-sticky {
+  position: fixed;
+  z-index:10;
+  width:100%;
+}
 
 /* Logo */
 .navbar-wagon-brand img {
