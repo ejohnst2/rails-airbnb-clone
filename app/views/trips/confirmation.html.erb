@@ -1,10 +1,20 @@
 <div class="container">
-  <p id="notice"><%= "Confirmed!!" %></p>
-<p>
-  <%= @trip.user_id %>
-  <%= @trip.bunker_id %>
-  <%= @trip.booking_date %>
-  <%= @trip.start_date %>
-  <%= @trip.end_date %>
-</p>
+  <h1>Reservation Confirmed!!</h1>
+  <p id="notice"><%="At Bunker #{@trip.bunker_id}"=%></p>
+<div class="container">
+  <div class="row">
+    <p>
+      <p><%= "Dear Client #{@trip.user.first_name} #{@trip.user.last_name} welcome to Bunker bnb!!" %></p>
+
+      <p><%= "Booking date: #{@trip.booking_date}"%></p>
+      <p><%= "Check in date: #{@trip.start_date}" %></p>
+      <p><%= "Check out date: #{@trip.end_date}" %></p>
+      <p><%= "#{ (@trip.end_date - @trip.start_date).to_i} nigths" %></p>
+      <p><%= "1 day price = $#{@trip.bunker.price}"=%></p>
+      <p><%= "Total = $#{@trip.bunker.price  *  (@trip.end_date - @trip.start_date).to_i}" %></p>
+
+    </p>
+  </div>
+</div>
+
 </div>
