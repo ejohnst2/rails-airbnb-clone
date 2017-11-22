@@ -1,4 +1,4 @@
-class CreateBunkers < ActiveRecord::Migration[5.1]
+class CreateBunkers < ActiveRecord::Migration
   def change
     create_table :bunkers do |t|
       t.references :user, foreign_key: true

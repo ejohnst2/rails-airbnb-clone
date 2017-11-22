@@ -5,22 +5,27 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Preview</th>
+      <th>Name</th>
+      <th>Description</th>
       <th>Price</th>
       <th>Location</th>
       <th>Review</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @bunkers.each do |bunker| %>
       <tr>
-        <td><%= bunker.user %></td>
+        <td><%= cl_image_tag bunker.photos[0].path, width: 100, height: 100, crop: :fill %></td>
+        <td><%= bunker.name %></td>
+        <td><%= bunker.description %></td>
         <td><%= bunker.price %></td>
-        <td><%= bunker.location %></td>
+        <td><%= bunker.location.country %></td>
         <td><%= link_to 'Show', bunker %></td>
         <td><%= link_to 'Edit', edit_bunker_path(bunker) %></td>
+        <td><%= link_to 'Send message', new_bunker_message_path(bunker.id) %></td>
         <td><%= link_to 'Destroy', bunker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
