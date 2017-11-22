@@ -20,19 +20,5 @@
   <%= @bunker.location %>
 </p>
 
-<p>
- <%= simple_form_for [@bunker, @trip] do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-
-
-        <div class="form-actions text-center">
-          <%= f.button :submit %>
-        </div>
-        <% end %>
-</p>
-
 <%= link_to 'Edit', edit_bunker_path(@bunker) %> |
 <%= link_to 'Back', bunkers_path %>
