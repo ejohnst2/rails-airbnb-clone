@@ -1,4 +1,5 @@
 <% content_for(:sticky_navbar) do %>
+  'none'
 <% end %>
 
 <!-- Carousel -->
@@ -8,13 +9,17 @@
 <!-- Sticky Header Menu -->
 
 <%= render 'sticky_menu' %>
-
+<% if @bunker.user.id != current_user.id %>
+  <div class=”divider btn-default”>
+    <%= @bunker.user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
+  </div>
+<% end %>
 <!-- Description of Bunker -->
 
 <div class="container">
   <div class="row">
   <div class="page-header">
-    <h1><%= @bunker.name %><small><%= @bunker.description %></small></h1>
+    <h1><%= @bunker.name %> <small> <%= @bunker.description %> </small> </h1>
     <h3>
       <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Arctic</font></font></span>
       <span class="divider"></span>
@@ -23,12 +28,6 @@
     </h3>
   </div>
 </div>
-
-<% if @bunker.user.id != current_user.id %>
-  <div class=”divider btn-default”>
-    <%= @bunker.user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
-  </div>x
-<% end %>
 
   <div class="row">
    <p id="DescriptionFor"><%= @bunker.description %></p>

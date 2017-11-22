@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-  <div id="wrapper">
-    <div class="container">
+   <div id="wrapper">
+    <div class="container margin-top">
       <div class="row">
 
         <% @trips.each do |trip| %>
@@ -8,7 +7,7 @@
           <div class="card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
           url('<%= cl_image_path trip.bunker.photos[0].path %>')">
-          <div class="card-category">trip.bunker.location.country</div>
+          <div class="card-category"> <%= trip.bunker.location.country %></div>
           <div class="card-description">
             <h2><%= trip.start_date %></h2>
             <p></p>
