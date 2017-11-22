@@ -22,7 +22,11 @@
     </h3>
   </div>
 </div>
-
+<% if @bunker.user.id != current_user.id %>
+  <div class=”divider btn-default”>
+    <%= @bunker.user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
+  </div>x
+<% end %>
 
 <div class="container">
   <div class="row">
