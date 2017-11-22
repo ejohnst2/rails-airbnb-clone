@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :trips, only: [:create]
   end
 
+  get "bunkers/:id/booking", to: "bunkers#booking", as: "booking"
+
   resources :trips, only: [:update, :edit, :destroy, :show, :index] do
     member do
       get 'confirmation'

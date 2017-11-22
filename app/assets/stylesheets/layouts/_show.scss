@@ -1,7 +1,3 @@
-.body {
-  font-family: 'Barlow Condensed', sans-serif;
-}
-
 .banner {
   color: white;
   text-align: center;
@@ -82,7 +78,7 @@ font-size: 5em;
   padding: 0px 30px;
   display: flex;
   align-items: center;
-  z-index: 1;
+  z-index: 100;
   position: relative;
   justify-content: space-between;
 }
