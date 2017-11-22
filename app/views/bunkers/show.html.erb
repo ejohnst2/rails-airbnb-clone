@@ -1,6 +1,4 @@
-
-<!-- Heading -->
-
+<div class="container-fluid">
 <div class="page-header">
   <h1><%= @bunker.name %><small><%= @bunker.short_description %></small></h1>
   <h3>
@@ -9,6 +7,7 @@
     <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bali</font></font></a>
     <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indonesia</font></font></a>
   </h3>
+</div>
 </div>
 
 <!-- Carousel -->
@@ -19,18 +18,13 @@
 
 <%= render 'sticky_menu' %>
 
-<br>
-<br>
-<br>
+<!-- Description of Bunker -->
 
 <div class="container">
   <div class="container">
-
-<!-- Description of Bunker -->
    <p id="DescriptionFor"><%= @bunker.description %></p>
-<br>
-<br>
-<br>
+
+<hr><br>
 
 <!-- Features of Bunker -->
 
@@ -80,23 +74,18 @@
         </div>
       </div>
 
-
-<!-- Specs of Bunker -->
-<!-- <span class="divider"></span>
- -->
-<br>
-<br>
-<br>
+<hr><br>
+<hr><br>
 
   <div class="container-mock">
     <h2>Bunker Specs</h2>
-        <p><strong>Price:</strong><%= @bunker.price %></p>
-        <p><strong>Size:</strong><%= @bunker.size %></p>
-<br>
-<br>
-<br>
+        <p><strong>Price: </strong><%= @bunker.price %></p>
+        <p><strong>Size: </strong><%= @bunker.size %></p>
+
+<hr><br>
+
       <h2>Where is it</h2>
-        <p id="LocationFor"><strong>Location:</strong><%= @bunker.location %></p>
+        <p id="LocationFor"><strong>Location: </strong><%= @bunker.location.longitude %>, <%= @bunker.location.latitude %>, <%= @bunker.location.country %></p>
       </div>
 
     </div>
@@ -104,10 +93,10 @@
 </div>
 </div>
 
+
 <!-- Links and Footer -->
 
-<%= link_to 'Edit', edit_bunker_path(@bunker) %> |
-<%= link_to 'Back', bunkers_path %>
+<%= link_to 'View More Bunkers', bunkers_path %>
 
 <% content_for(:after_js) do %>
   <script>
