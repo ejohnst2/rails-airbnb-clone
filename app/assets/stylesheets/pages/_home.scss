@@ -5,10 +5,39 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-
+  align: relative;
 }
 
-.slide {
+.highlight {
+  color: white;
+  width: 470px;
+  background-color: #353535 !important;
+}
+
+.highlight1 {
+  color: white;
+  width: 700px;
+  background-color: #353535 !important;
+}
+
+
+.highlighter {
+  width: 820px;
+  color: #353535;
+  // background-color: #494949 !important;
+}
+
+.highlighter1 {
+  width: 600px;
+  color: white;
+  background-color: #494949 !important;
+}
+
+h4 {
+  color: gray;
+}
+
+.slide-home {
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -172,6 +201,65 @@
   }
 }
 
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.information {
+      padding: 10px 20px;
+    background-image: url("http://www.stainlessaquatics.com/wp-content/uploads/2014/01/steel-stainless-background-lt.png");
+
+    /* Set a specific height */
+    height: 500px;
+    text-align: justify;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.icon {
+    width: 150px;
+height: 150px;
+}
+
+  @import url(https://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css);
+  body{
+    background: #ECECEC;
+    margin:0px ;
+    color:#333;
+  }
+  a.button{
+    color: #ECECEC;
+    padding: 10px 20px;
+    display: block;
+    background:#494949;
+    text-decoration: none;
+    width: 250px;
+    margin:0px auto;
+    // box-shadow: 0px 2px 1px white inset, 0px -2px 8px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+    // -webkit-transition:box-shadow 0.5s;
+  }
+
+
+  a.button:active{
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5) inset, 0px 1px 5px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
 .card-description {
   position: absolute;
@@ -186,6 +274,7 @@
   opacity: 0.7;
   font-weight: lighter;
 }
+
 .card-link {
   position: absolute;
   top: 0;
@@ -196,6 +285,7 @@
   background: black;
   opacity: 0;
 }
+
 .card-link:hover {
   opacity: 0.1;
 }

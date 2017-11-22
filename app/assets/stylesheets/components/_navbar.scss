@@ -7,8 +7,19 @@
   padding: 0px 30px;
   display: flex;
   align-items: center;
+  position: fixed;
+  // Monkey patch!
+  z-index:10;
+  // Monkey patch!
+  width:100%;
   justify-content: space-between;
+  background-image: -webkit-linear-gradient(#ffffff 0%, #dfdfdf 100%);
+  background-image: -o-linear-gradient(#ffffff 0%, #dfdfdf 100%);
+  background-image: linear-gradient(#ffffff 0%, #dfdfdf 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
 }
+
 
 /* Logo */
 .navbar-wagon-brand img {

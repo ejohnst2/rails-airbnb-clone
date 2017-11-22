@@ -1,4 +1,4 @@
-class CreateTrips < ActiveRecord::Migration[5.1]
+class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
       t.references :user, foreign_key: true
