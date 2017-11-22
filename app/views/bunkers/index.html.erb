@@ -1,5 +1,44 @@
+
+<br>
+<br>
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-9 col-xs-6">
+       <center> <h1>Bunkers</h1></center>
+
+      <div class="row">
+        <% @bunkers.each do |bunker| %>
+        <div class="col-l-4 col-xs-4 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path bunker.photos[0].path %>');">
+                <div class="card-category"><%= bunker.location.country %> Location</div>
+              <div class="card-description">
+              <h2><%= bunker.name %></h2>
+              <p style="align">$<%= bunker.price %>/DAY</p>
+            </div>
+            <%= link_to '', bunker_path(bunker), class: 'card-link' %>
+          </div>
+          <br>
+        </div>
+        <%end %>
+
+      </div>
+      <center><%= link_to "List Your Bunker", new_bunker_path, :class => "button" %></center>
+<br>
+      </div>
+      <div class="col-lg-3 col-xs-6">
+        <br>
+        <br>
+        <br>
+        <br>
+      <img src="http://www.siroccowebdesign.com.au/images/google-maps-lg.jpg">
+      </div>
+  </div>
+</div>
+</div>
+<!--
 <h1>Bunkers</h1>
 
 <table>
@@ -33,5 +72,5 @@
 </table>
 
 <br>
-
+ -->
 <%= link_to 'Prepare the world become a bunker host', new_bunker_path %>

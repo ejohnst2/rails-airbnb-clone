@@ -1,0 +1,77 @@
+.simple_form{
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+    border-radius: 1%;
+}
+.simple_form h1{
+    background: #555;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+.simple_form input[type="text"],
+.simple_form input[type="date"],
+.simple_form input[type="datetime"],
+.simple_form input[type="email"],
+.simple_form input[type="number"],
+.simple_form input[type="search"],
+.simple_form input[type="time"],
+.simple_form input[type="url"],
+.simple_form textarea,
+.simple_form select
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+.simple_form input[type="text"]:focus,
+.simple_form input[type="date"]:focus,
+.simple_form input[type="datetime"]:focus,
+.simple_form input[type="email"]:focus,
+.simple_form input[type="number"]:focus,
+.simple_form input[type="search"]:focus,
+.simple_form input[type="time"]:focus,
+.simple_form input[type="url"]:focus,
+.simple_form textarea:focus,
+.simple_form select:focus
+{
+    box-shadow: 0 0 5px #555;
+    padding: 3%;
+    border: 1px solid #555;
+}
+
+.simple_form input[type="submit"],
+.simple_form input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #555;
+    border-bottom: 2px solid #555;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+}
+.simple_form input[type="submit"]:hover,
+.simple_form input[type="button"]:hover{
+    background: #555;
+}
