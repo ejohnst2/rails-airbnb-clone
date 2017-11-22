@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @bunker.user %>
+  <strong>Name:</strong>
+  <%= @bunker.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bunker.description %>
 </p>
 
 <p>
@@ -17,8 +22,13 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @bunker.location %>
+  <%= @bunker.location.longitude %>, <%= @bunker.location.latitude %>, <%= @bunker.location.country %>
 </p>
+
+<% @bunker.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_bunker_path(@bunker) %> |
 <%= link_to 'Back', bunkers_path %>
