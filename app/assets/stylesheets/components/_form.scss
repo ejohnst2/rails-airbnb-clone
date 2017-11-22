@@ -4,6 +4,9 @@
     padding: 16px;
     background: #F7F7F7;
     border-radius: 1%;
+    -moz-box-shadow: 0 0 30px 5px #999;
+-webkit-box-shadow: 0 0 30px 5px #999;
+color: #555;
 }
 .simple_form h1{
     background: #555;
@@ -62,8 +65,8 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    width: 100%;
-    padding: 3%;
+    width: 25%;
+    padding: 1.5%;
     background: #555;
     border-bottom: 2px solid #555;
     border-top-style: none;
@@ -72,6 +75,6 @@
     color: #fff;
 }
 .simple_form input[type="submit"]:hover,
-.simple_form input[type="button"]:hover{
+.simple_form input[type="button"]:active{
     background: #555;
 }
