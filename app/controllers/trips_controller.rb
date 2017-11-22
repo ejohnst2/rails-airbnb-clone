@@ -1,17 +1,23 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:edit, :show, :update, :destroy]
+  before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation]
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.bunker = Bunker.find(params[:bunker_id])
+
+
+    @bunker =  Bunker.find(params[:bunker_id])
+    @trip.bunker = @bunker
     @trip.user = current_user
     @trip.booking_date = Date.today
 
     if @trip.save
-      redirect_to bunker_path(@bunker)
+      redirect_to confirmation_trip_path(@trip)
     else
       render 'bunkers/#{@bunker.id}/show'
     end
+  end
+
+  def confirmation
   end
 
   def edit

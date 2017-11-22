@@ -21,7 +21,7 @@
         <td><%= bunker.location %></td>
         <td><%= link_to 'Show', bunker %></td>
         <td><%= link_to 'Edit', edit_bunker_path(bunker) %></td>
-        <td><%= link_to 'Send message', new_bunker_message_path(bunker.id) %></td>
+        <td><%= link_to 'Send message', "#" %></td>
         <td><%= link_to 'Destroy', bunker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
