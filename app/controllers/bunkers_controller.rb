@@ -1,5 +1,5 @@
 class BunkersController < ApplicationController
-  before_action :set_bunker, only: [:show, :edit, :update, :destroy]
+  before_action :set_bunker, only: [:show, :edit, :update, :destroy, :booking]
 
   # GET /bunkers
   # GET /bunkers.json
@@ -10,7 +10,6 @@ class BunkersController < ApplicationController
   # GET /bunkers/1
   # GET /bunkers/1.json
   def show
-    @trip = Trip.new
   end
 
   # GET /bunkers/new
@@ -61,6 +60,10 @@ class BunkersController < ApplicationController
       format.html { redirect_to bunkers_url, notice: 'Bunker was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def booking
+    @trip = Trip.new
   end
 
   private
