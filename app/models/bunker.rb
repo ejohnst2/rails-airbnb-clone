@@ -1,4 +1,5 @@
 class Bunker < ApplicationRecord
+
   belongs_to :location
   belongs_to :user
   has_attachments :photos, maximum: 10
@@ -8,3 +9,4 @@ class Bunker < ApplicationRecord
   validates :price, :size, :name, :description, presence: true, allow_blank: false
   # don't forget to add user
 end
+

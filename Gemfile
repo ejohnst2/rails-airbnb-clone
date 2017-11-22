@@ -24,6 +24,7 @@ gem 'uglifier'
 gem 'devise'
 gem 'sticky-rails'
 gem 'omniauth-facebook'
+gem "geocoder"
 
 group :development, :test do
   gem 'pry-byebug'
