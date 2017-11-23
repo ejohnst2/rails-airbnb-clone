@@ -4,10 +4,12 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :bunkers do
-    resources :trips, only: [:create]
+    collection do
+      get 'index_host', as: "host"
+    end
+    resources :trips, only: [:new, :create]
   end
 
-  get "bunkers/:id/booking", to: "bunkers#booking", as: "booking"
 
   resources :trips, only: [:update, :edit, :destroy, :show, :index] do
     member do
