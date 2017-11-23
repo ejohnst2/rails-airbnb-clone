@@ -1,15 +1,6 @@
-
-<!-- Heading -->
-
-<div class="page-header">
-  <h1><%= @bunker.name %><small><%= @bunker.description %></small></h1>
-  <h3>
-    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Farm</font></font></span>
-    <span class="divider"></span>
-    <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bali</font></font></a>
-    <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indonesia</font></font></a>
-  </h3>
-</div>
+<% content_for(:sticky_navbar) do %>
+  'none'
+<% end %>
 
 <!-- Carousel -->
 
@@ -18,101 +9,105 @@
 <!-- Sticky Header Menu -->
 
 <%= render 'sticky_menu' %>
-
-<br>
-<br>
-<br>
+<% if @bunker.user.id != current_user.id %>
+  <div class=”divider btn-default”>
+    <%= @bunker.user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
+  </div>
+<% end %>
+<!-- Description of Bunker -->
 
 <div class="container">
-  <div class="container">
-
-<!-- Description of Bunker -->
-   <p id="DescriptionFor"><%= @bunker.description %></p>
-<br>
-<br>
-<br>
-
-<!-- Features of Bunker -->
-
   <div class="row">
-    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
-      <div class="row text_center clear">
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-          <div class="listing_item">
-            <i class="fa fa-bed icon" aria-hidden="true"></i>
-            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
-            <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
-          </div>
-        </div>
-      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-        <div class="listing_item">
-            <i class="fa fa-bed icon" aria-hidden="true"></i>
-            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
-            <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-          <div class="listing_item">
-            <i class="fa fa-bed icon" aria-hidden="true"></i>
-            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
-            <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
-          </div>
-        </div>
-      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-        <div class="listing_item">
-            <i class="fa fa-bed icon" aria-hidden="true"></i>
-            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
-            <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-          <div class="listing_item">
-            <i class="fa fa-bed icon" aria-hidden="true"></i>
-            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
-            <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
-          </div>
-        </div>
-      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-        <div class="listing_item">
-            <i class="fa fa-bed icon" aria-hidden="true"></i>
-            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shared Dorm</font></font></h5>
-            <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
-        </div>
-      </div>
-
-
-<!-- Specs of Bunker -->
-<!-- <span class="divider"></span>
- -->
-<br>
-<br>
-<br>
-
-  <div class="container-mock">
-    <h2>Bunker Specs</h2>
-        <p><strong>Price:</strong><%= @bunker.price %></p>
-        <p><strong>Size:</strong><%= @bunker.size %></p>
-<br>
-<br>
-<br>
-      <h2>Where is it</h2>
-        <p id="LocationFor"><strong>Location:</strong><%= @bunker.location %></p>
-      </div>
-
-    </div>
+  <div class="page-header">
+    <h1><%= @bunker.name %> <small> <%= @bunker.description %> </small> </h1>
+    <h3>
+      <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Arctic</font></font></span>
+      <span class="divider"></span>
+      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%= @bunker.location.city %></font></font></a>
+      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%= @bunker.location.country %></font></font></a>
+    </h3>
   </div>
 </div>
+
+  <div class="row">
+   <p id="DescriptionFor"><%= @bunker.description %></p>
+ </div>
+
+ <!-- Features of Bunker -->
+
+ <div class="row">
+  <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
 </div>
+<!--   <div class="row text_center clear">
+ -->
+ <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-bed icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Private Room</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-wifi icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Internet</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-tint icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fresh Water Supply</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-bed icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Backup Generator</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-cutlery icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Robot Chef</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Have a private room to chill and relax just by yourself.</font></font></p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+      <div class="listing_item">
+        <i class="fa fa-thermometer-three-quarters icon" aria-hidden="true"></i>
+        <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Heating</font></font></h5>
+        <p class="light sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Be ready to meet people while staying in a shared dorm.</font></font></p>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <h2>Bunker Specs</h2>
+      <p><strong>Price: </strong><%= @bunker.price %></p>
+      <p><strong>Size: </strong><%= @bunker.size %></p>
+    </div>
+
+    <div class="row">
+      <h2>Where is it</h2>
+      <p id="LocationFor"><strong>Location: </strong><%= @bunker.location.longitude %>, <%= @bunker.location.latitude %>, <%= @bunker.location.country %></p>
+    </div>
+<!--   </div>
+ --></div>
+</div>
+
 
 <!-- Links and Footer -->
 
-<%= link_to 'Edit', edit_bunker_path(@bunker) %> |
-<%= link_to 'Back', bunkers_path %>
+<%= link_to 'View More Bunkers', bunkers_path %>
 
 <% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function(){
-      $("#sticker-sticky-wrapper").sticky({topSpacing:0, className: "is-sticky hey"});
-    });
-  </script>
+<script>
+  $(document).ready(function(){
+    $("#sticker-sticky-wrapper").sticky({topSpacing:0, className: "is-sticky hey"});
+  });
+</script>
 <% end %>

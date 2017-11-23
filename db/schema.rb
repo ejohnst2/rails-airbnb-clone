@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171122181532) do
+=======
+ActiveRecord::Schema.define(version: 20171122155248) do
+>>>>>>> 17a835f6f6c9100648204a503c392df7770dea3e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachinary_files", force: :cascade do |t|
+  create_table "attachinary_files", id: :serial, force: :cascade do |t|
     t.string "attachinariable_type"
-    t.bigint "attachinariable_id"
+    t.integer "attachinariable_id"
     t.string "scope"
     t.string "public_id"
     t.string "version"
@@ -25,8 +29,9 @@ ActiveRecord::Schema.define(version: 20171122181532) do
     t.integer "height"
     t.string "format"
     t.string "resource_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
   create_table "bunkers", force: :cascade do |t|
@@ -38,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171122181532) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "name"
+    t.string "short_description"
     t.index ["location_id"], name: "index_bunkers_on_location_id"
     t.index ["user_id"], name: "index_bunkers_on_user_id"
   end
