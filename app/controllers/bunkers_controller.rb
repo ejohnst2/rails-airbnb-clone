@@ -3,11 +3,11 @@ class BunkersController < ApplicationController
   # GET /bunkers
   # GET /bunkers.json
   def index
-    # @bunkers = Bunker.all
-    @bunkers = Bunker.joins(:location).all
+    @bunkers = Bunker.all
+    # @bunkers = Bunker.where.not(latitude: nil, longitude: nil)
     @markers = Gmaps4rails.build_markers(@bunkers) do |bunker, marker|
-      marker.lat bunker.location.latitude
-      marker.lng bunker.location.longitude
+      marker.lat bunker.latitude
+      marker.lng bunker.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
@@ -19,13 +19,18 @@ class BunkersController < ApplicationController
   # GET /bunkers/1
   # GET /bunkers/1.json
   def show
+    bunkers = [@bunker]
+    @markers = Gmaps4rails.build_markers(bunkers) do |bunker, marker|
+      marker.lat bunker.latitude
+      marker.lng bunker.longitude
+    end
     @user = current_user
   end
 
   # GET /bunkers/new
   def new
     @bunker = Bunker.new
-    @bunker.build_location
+    # @bunker.build_location
   end
 
   # GET /bunkers/1/edit
@@ -80,6 +85,6 @@ class BunkersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bunker_params
-      params.require(:bunker).permit(:description, :name, :user, :price, :size, photos: [], location_attributes: [:country, :city, :number, :street_name, :zip, :latitude, :longitude])
+      params.require(:bunker).permit(:description, :address, :name, :user, :price, :size, photos: [])
     end
 end

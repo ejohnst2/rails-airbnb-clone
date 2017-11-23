@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123132455) do
+ActiveRecord::Schema.define(version: 20171123190422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20171123132455) do
     t.bigint "user_id"
     t.string "size"
     t.integer "price"
-    t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
@@ -41,7 +40,10 @@ ActiveRecord::Schema.define(version: 20171123132455) do
     t.string "short_description"
     t.float "latitude"
     t.float "longitude"
-    t.index ["location_id"], name: "index_bunkers_on_location_id"
+    t.string "address"
+    t.integer "zip_code"
+    t.string "city"
+    t.string "country"
     t.index ["user_id"], name: "index_bunkers_on_user_id"
   end
 
@@ -50,19 +52,6 @@ ActiveRecord::Schema.define(version: 20171123132455) do
     t.integer "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "country"
-    t.string "city"
-    t.integer "number"
-    t.string "street_name"
-    t.integer "zip"
-    t.float "latitude"
-    t.float "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "address"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -113,7 +102,6 @@ ActiveRecord::Schema.define(version: 20171123132455) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bunkers", "locations"
   add_foreign_key "bunkers", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
