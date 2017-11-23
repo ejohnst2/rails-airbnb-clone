@@ -10,5 +10,18 @@ class Bunker < ApplicationRecord
   # geocoded_by :location
   # after_validation :geocode, if: :location_changed?
 
+  def self.search(query)
+    if query.present?
+      Bunker.joins(:location, :user).where("bunkers.name LIKE ? OR
+                                           users.first_name LIKE ? OR
+                                           users.last_name LIKE ?",
+                                           "%#{query}%",
+                                           "%#{query}%",
+                                           "%#{query}%")
+    else
+      Bunker.joins(:location).all
+    end
+  end
+
 end
 
