@@ -1,5 +1,4 @@
 class Bunker < ApplicationRecord
-
   belongs_to :location
   belongs_to :user
   has_attachments :photos, maximum: 10
