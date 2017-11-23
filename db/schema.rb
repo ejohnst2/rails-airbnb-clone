@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122155248) do
+ActiveRecord::Schema.define(version: 20171123190422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachinary_files", id: :serial, force: :cascade do |t|
+  create_table "attachinary_files", force: :cascade do |t|
     t.string "attachinariable_type"
-    t.integer "attachinariable_id"
+    t.bigint "attachinariable_id"
     t.string "scope"
     t.string "public_id"
     t.string "version"
@@ -25,40 +25,31 @@ ActiveRecord::Schema.define(version: 20171122155248) do
     t.integer "height"
     t.string "format"
     t.string "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bunkers", force: :cascade do |t|
     t.bigint "user_id"
     t.string "size"
     t.integer "price"
-    t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "name"
     t.string "short_description"
-    t.index ["location_id"], name: "index_bunkers_on_location_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.integer "zip_code"
+    t.string "city"
+    t.string "country"
     t.index ["user_id"], name: "index_bunkers_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "recipient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "country"
-    t.string "city"
-    t.integer "number"
-    t.string "street_name"
-    t.integer "zip"
-    t.float "latitude"
-    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -111,7 +102,6 @@ ActiveRecord::Schema.define(version: 20171122155248) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bunkers", "locations"
   add_foreign_key "bunkers", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
