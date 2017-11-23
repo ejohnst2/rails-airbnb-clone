@@ -54,3 +54,31 @@
     </div>
   </div>
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-xs-6">
+      <center> <h1 class="highlight2">Upcoming Trips At Your Bunkers</h1></center>
+      <div class="row">
+        <% @bunkers.each do |bunker| %>
+          <% bunker.trips.each do |trip| %>
+            <% if trip.approved == false %>
+              <div class="col-l-4 col-xs-4 col-sm-4">
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path trip.bunker.photos[0].path %>');">
+                  <div class="card-category"><%= trip.bunker.location.country %></div>
+                  <div class="card-description">
+                    <h2><%= trip.bunker.name %></h2>
+                    <p style="align"><%= trip.start_date %></p>
+                  </div>
+                  <%= link_to '', trip_path(trip), class: 'card-link' %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
