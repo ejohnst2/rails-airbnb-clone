@@ -9,5 +9,6 @@ class Bunker < ApplicationRecord
   # don't forget to add user
   # geocoded_by :location
   # after_validation :geocode, if: :location_changed?
+
 end
 

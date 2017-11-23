@@ -8,6 +8,8 @@ gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
 gem "geocoder"
+gem "letter_opener", group: :development
+gem 'gibbon'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'

@@ -5,8 +5,12 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable#,
+         #:confirmable
   devise :omniauthable, omniauth_providers: [:facebook]
+
+
+  after_create :subscribe_to_newsletter
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -28,4 +32,11 @@ class User < ApplicationRecord
 
     return user
   end
+
+    private
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
+  end
+
 end
