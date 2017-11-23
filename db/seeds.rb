@@ -18,7 +18,6 @@
 #   # don't forget to add user
 # end
 Bunker.destroy_all
-Location.destroy_all
 User.destroy_all
 
 urls = [
@@ -28,9 +27,7 @@ urls = [
 
 new_user = User.new(email: 'admin@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(number: "1109", street_name: "E 93 street", city: "Brooklyn", country: "United States")
-new_location.save!
-bunker = Bunker.new(name: 'Survival Center', description: "Thick walls and steel reinforcement", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Survival Center', description: "Thick walls and steel reinforcement", price: 500, size: 500, address: "1109 E 93 Street", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -42,9 +39,7 @@ urls = [
 
 new_user = User.new(email: 'admin1@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(number: "16", street_name: "ladeira da gloria", city: "Rio de Janeiro", country: "Brazil")
-new_location.save!
-bunker = Bunker.new(name: 'Desert Abode', description: "Cryopreservation tanks included", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Desert Abode', description: "Cryopreservation tanks included", price: 500, size: 500, address: "16 Ladeira da Gloria", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -57,9 +52,7 @@ urls = [
 
 new_user = User.new(email: 'admin2@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(number: "16", street_name: "Villa Gaudlet", city: "Paris", country: "France")
-new_location.save!
-bunker = Bunker.new(name: 'Strongest Bunker from WWII', description: "Certified inpenetrable", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Strongest Bunker from WWII', description: "Certified inpenetrable", price: 500, size: 500, address: "16 Villa Gaudlet", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -70,9 +63,7 @@ urls = [
 
 new_user = User.new(email: 'admin3@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(number: "267", street_name: "9th street", city: "Brooklyn", country: "United States")
-new_location.save!
-bunker = Bunker.new(name: 'Discount Damaged Bunker', description: "Push upright and good to go", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Discount Damaged Bunker', description: "Push upright and good to go", price: 500, size: 500, address: "267 9th street", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -83,9 +74,7 @@ urls = [
 
 new_user = User.new(email: 'admin4@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(number: "33", street_name: "Pheng Geck Avenue", city: "Singapore", country: "Singapore")
-new_location.save!
-bunker = Bunker.new(name: 'Sunken House', description: "Underground luxury", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Sunken House', description: "Underground luxury", price: 500, size: 500, address: "33 Pheng Geck Avenue", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
