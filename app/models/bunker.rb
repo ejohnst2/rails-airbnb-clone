@@ -1,4 +1,5 @@
 class Bunker < ApplicationRecord
+
   belongs_to :location
   belongs_to :user
   has_attachments :photos, maximum: 10
@@ -10,3 +11,4 @@ class Bunker < ApplicationRecord
   # geocoded_by :location
   # after_validation :geocode, if: :location_changed?
 end
+
