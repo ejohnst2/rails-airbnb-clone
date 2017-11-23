@@ -70,6 +70,9 @@
 <!-- Links and Footer -->
 
 <%= link_to 'View More Bunkers', bunkers_path %>
+<% if @bunker.user == @user %>
+        <%= link_to 'Edit', edit_bunker_path(@bunker) %>
+<% end %>
 
 <% content_for(:after_js) do %>
         <%= javascript_tag do %>
