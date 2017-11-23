@@ -17,6 +17,7 @@
       </form>
 
       <%= link_to "List Your Bunker", new_bunker_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <%#= link_to "Bunkers", bunkers_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", trips_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", conversations_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -43,6 +44,11 @@
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
+            <li>
+              <%= link_to host_bunkers_path do %>
+                <i class="fa fa-superpowers"> Host Interface</i>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
@@ -64,9 +70,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to "List a Bunker", new_bunker_path %></li>
+        <li><%= link_to "Trips", trips_path %></li>
+        <li><%= link_to "Messages", conversations_path %></li>
       </ul>
     </div>
   </div>

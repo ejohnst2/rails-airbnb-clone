@@ -7,7 +7,9 @@
     -moz-box-shadow: 0 0 30px 5px #999;
 -webkit-box-shadow: 0 0 30px 5px #999;
 color: #555;
+font-family: 'Oxygen', sans-serif;
 }
+
 .simple_form h1{
     background: #555;
     padding: 20px 0;
@@ -65,7 +67,7 @@ color: #555;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    width: 25%;
+    width: flex;
     padding: 1.5%;
     background: #555;
     border-bottom: 2px solid #555;
@@ -74,7 +76,17 @@ color: #555;
     border-left-style: none;
     color: #fff;
 }
+
 .simple_form input[type="submit"]:hover,
 .simple_form input[type="button"]:active{
     background: #555;
+}
+
+a {
+  color: #555;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
 }
