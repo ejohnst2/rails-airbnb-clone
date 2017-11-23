@@ -1,6 +1,5 @@
 class BunkersController < ApplicationController
   before_action :set_bunker, only: [:show, :edit, :update, :destroy, :booking]
-
   # GET /bunkers
   # GET /bunkers.json
   def index
