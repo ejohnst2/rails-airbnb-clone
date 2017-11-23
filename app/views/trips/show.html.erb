@@ -1,7 +1,6 @@
 <div class="container">
-  <h1>Reservation Details</h1>
       <div class="row">
-          <div class="card"
+          <div class="card-reservation"
             style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
             url('<%= cl_image_path @trip.bunker.photos[0].path %>')">
             <div class="card-category"><%= @trip.bunker.location.country %></div>
@@ -14,6 +13,7 @@
     </div>
     <div class="container">
       <div>
+        <center><h1 class=highlight>Reservation Details</h1></center>
         <p>Booking date:   <%= @trip.booking_date %></p>
         <p>Start date:     <%= @trip.start_date %></p>
         </p>End date:      <%= @trip.end_date %></p>
@@ -31,7 +31,9 @@
         <p>Street: <%= @trip.bunker.location.street_name %></p>
         <p>Zip: <%= @trip.bunker.location.zip %></p>
       </div>
-      <%= link_to 'Back', trips_path %>
+      <br>
+      <br>
+      <center><%= link_to 'Back', trips_path %></center>
 </div>
 
 

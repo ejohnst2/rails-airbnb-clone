@@ -9,7 +9,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
 
 
-  after_create :subscribe_to_newsletter
+  # after_create :subscribe_to_newsletter
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
