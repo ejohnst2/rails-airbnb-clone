@@ -1,7 +1,7 @@
 
 <div class="container">
-  <h2>Congrats <%= current_user.first_name %>, you are one step closer to survival.</h2>
-  <h3> Your Booking: <%= link_to @bunker.name, bunker_path(@bunker) %> in <%= @bunker.location.country %></h3>
+  <center><h1 class=highlight>Book Bunker Now</h1></center>
+  <center><h3> <%= link_to @bunker.name, bunker_path(@bunker) %> </h3></center>
 
   <div class="row">
     <%= simple_form_for [@bunker, @trip] do |f| %>
@@ -17,6 +17,8 @@
     </div>
     <% end %>
   </div>
-
-  <%= link_to "Back to Bunker", bunker_path(@bunker) %>
+  <br>
+  <center><%= link_to "Back to Bunker", bunker_path(@bunker) %></center>
+  <br>
+  <br>
 </div>
