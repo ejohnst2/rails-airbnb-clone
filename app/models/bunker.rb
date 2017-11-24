@@ -14,14 +14,14 @@ class Bunker < ApplicationRecord
 
   def self.search(query)
     if query.present?
-      Bunker.joins(:location, :user).where("bunkers.name LIKE ? OR
+      Bunker.joins(:user).where("bunkers.name LIKE ? OR
                                            users.first_name LIKE ? OR
                                            users.last_name LIKE ?",
                                            "%#{query}%",
                                            "%#{query}%",
                                            "%#{query}%")
     else
-      Bunker.joins(:location).all
+      Bunker.all
     end
   end
 end

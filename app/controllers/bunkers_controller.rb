@@ -85,6 +85,6 @@ class BunkersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bunker_params
-      params.require(:bunker).permit(:description, :address, :name, :user, :price, :size, photos: [])
+      params.require(:bunker).permit(:description, :address, :name, :user, :price, :size, photos: [], feature_ids: [])
     end
 end

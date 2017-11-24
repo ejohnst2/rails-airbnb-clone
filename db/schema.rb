@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 20171124132126) do
   end
 
   create_table "bunkers_features", id: false, force: :cascade do |t|
-    t.bigint "bunker_id_id"
-    t.bigint "feature_id_id"
+    t.bigint "bunker_id"
+    t.bigint "feature_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bunker_id_id"], name: "index_bunkers_features_on_bunker_id_id"
-    t.index ["feature_id_id"], name: "index_bunkers_features_on_feature_id_id"
+    t.index ["bunker_id"], name: "index_bunkers_features_on_bunker_id"
+    t.index ["feature_id"], name: "index_bunkers_features_on_feature_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20171124132126) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "features", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -72,8 +71,6 @@ ActiveRecord::Schema.define(version: 20171124132126) do
     t.datetime "updated_at", null: false
   end
 
-=======
->>>>>>> 9b1f8c16edd31c6a67a9b235e4598ed937058387
   create_table "messages", force: :cascade do |t|
     t.string "header"
     t.text "content"

@@ -14,9 +14,7 @@
         <%= f.input :zip_code, as: :string %>
         <%= f.input :city %>
         <%= f.input :country, priority: [ 'US' ] %>
-        <%#= f.simple_fields_for :location do |l| %>
-          <%#= l.country_select :country, { priority_countries: ["GB", "FR", "US", "BR"] }, {class: "form-control"} %>
-        <%# end %>
+        <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name %>
       </div>
         <%= f.input :photos, as: :attachinary %>
 
@@ -26,3 +24,8 @@
     <% end %>
   </div>
 </div>
+
+
+<%#= f.simple_fields_for :location do |l| %>
+          <%#= l.country_select :country, { priority_countries: ["GB", "FR", "US", "BR"] }, {class: "form-control"} %>
+        <%# end %>
