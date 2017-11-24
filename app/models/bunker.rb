@@ -6,6 +6,7 @@ class Bunker < ApplicationRecord
   # has_one :location, dependent: :destroy
   accepts_nested_attributes_for :location
   has_many :trips, dependent: :destroy
+  has_and_belongs_to_many :features
   validates :price, :size, :name, :description, presence: true, allow_blank: false
   # don't forget to add user
   # geocoded_by :location
