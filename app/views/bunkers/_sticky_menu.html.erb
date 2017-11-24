@@ -3,47 +3,62 @@
     <div id="dynamic-menu-bar">
 
       <div id="dynamic-menu-section">
-        <span data-radium="true" style="opacity: 1; cursor: pointer;">
+        <span style="opacity: 1; cursor: pointer;">
           <a href="#DescriptionFor">
-            <div id="dynamic-menu-item" data-radium="true">
-        <span id="dynamic-menu-span" data-radium="true">Description</span>
+            <div id="dynamic-menu-item">
+              <span id="dynamic-menu-span">Description</span>
+            </div>
+          </a>
+        </span>
       </div>
-    </a>
-  </span>
-</div>
 
-<div id="dynamic-menu-section">
-    <span data-radium="true" style="opacity: 1; cursor: pointer;">
-      <a href="#LocationFor">
+      <div id="dynamic-menu-section">
+        <span style="opacity: 1; cursor: pointer;">
+          <a href="#LocationFor">
+            <div id="dynamic-menu-item">
+              <span id="dynamic-menu-span">Location</span>
+            </div>
+          </a>
+        </span>
+      </div>
+
+      <div id="dynamic-menu-section">
+        <span style="opacity: 1; cursor: pointer;">
+          <a href="#FeaturesFor">
+          <div id="dynamic-menu-item">
+            <span id="dynamic-menu-span">Features</span>
+          </div>
+        </a>
+      </span>
+    </div>
+
+
+    <div id="dynamic-menu-section">
+      <span style="opacity: 1; cursor: pointer;">
+        <a href="#SpecificationsFor">
         <div id="dynamic-menu-item">
-        <span data-radium="true" id="dynamic-menu-span">Location</span>
-      </div>
-    </a>
-  </span>
-</div>
+          <span id="dynamic-menu-span">Specifications</span>
+        </div>
+      </a>
+    </span>
+  </div>
 
-<div id="dynamic-menu-section">
-    <span data-radium="true" style="opacity: 1; cursor: pointer;"><a>
+  <div id="dynamic-menu-section">
+    <span style="opacity: 1; cursor: pointer;">
       <div id="dynamic-menu-item">
-        <span data-radium="true" id="dynamic-menu-span">Features</span>
-      </div>
-    </a>
-  </span>
-</div>
+        <span id="dynamic-menu-span">
+          <% if @bunker.user.id != current_user.id %>
+            <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
+          <% end %>
+          </span>
+        </div>
+    </span>
+  </div>
 
 <div id="dynamic-menu-section">
-    <span data-radium="true" style="opacity: 1; cursor: pointer;"><a>
-      <div id="dynamic-menu-item">
-        <span data-radium="true" id="dynamic-menu-span">Specifications</span>
-      </div>
-    </a>
-  </span>
-</div>
-
-<div id="dynamic-menu-section">
-  <span data-radium="true" style="opacity: 1; cursor: pointer;">
+  <span style="opacity: 1; cursor: pointer;">
  <div id="dynamic-menu-item">
-        <span data-radium="true" id="dynamic-menu-span"><%= link_to "Book Now", booking_path, { :class => "btn-default text-center" } %></span>
+        <span id="dynamic-menu-span"><%= link_to "Book Now", new_bunker_trip_path(@bunker) %></span>
       </div>
   </span>
 </div>
@@ -52,3 +67,5 @@
 </div>
 </div>
 
+<!-- { :class => "btn-default text-center" }
+ -->

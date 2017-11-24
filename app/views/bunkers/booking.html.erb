@@ -1,7 +1,7 @@
 
 <div class="container">
   <h2>Congrats <%= current_user.first_name %>, you are one step closer to survival.</h2>
-  <h3> Your Booking: <%= link_to @bunker.name, bunker_path(@bunker) %> in <%= @bunker.location.country %></h3>
+  <h3> Your Booking: <%= link_to @bunker.name, bunker_path(@bunker) %> in <%= @bunker.country %></h3>
 
   <div class="row">
     <%= simple_form_for [@bunker, @trip] do |f| %>

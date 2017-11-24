@@ -12,12 +12,17 @@
   background: -o-linear-gradient(#ffffff 0%, #828282);
   background: linear-gradient(#ffffff 0%, #828282);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
+  font-weight: lighter !important;
+
+  // position: top;
 }
 
 .navbar-wagon-sticky {
-  position: fixed;
+  position: relative;
   z-index:1000;
   width:100%;
+    font-weight: lighter !important;
+
 }
 
 /* Logo */
@@ -53,12 +58,14 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+    font-weight: lighter !important;
+
 }
+
 .navbar-wagon-link:hover {
   color: #353535;
   text-decoration: none;
     -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
-
 }
 
 /* Dropdown menu */
@@ -67,6 +74,7 @@
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
+
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;

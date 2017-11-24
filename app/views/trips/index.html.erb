@@ -1,3 +1,4 @@
+<center><h1 class=highlight>Your Trips</h1></center>
    <div id="wrapper">
     <div class="container margin-top">
       <div class="row">
@@ -7,7 +8,7 @@
           <div class="card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
           url('<%= cl_image_path trip.bunker.photos[0].path %>')">
-          <div class="card-category"> <%= trip.bunker.location.country %></div>
+          <div class="card-category"> <%= trip.bunker.country %></div>
           <div class="card-description">
             <h2><%= trip.start_date %></h2>
             <p></p>
@@ -18,5 +19,9 @@
       </div>
       <% end %>
     </div>
+          <br>
+      <br>
+      <br>
+
   </div>
 </div>

@@ -2,15 +2,19 @@
 Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   resources :bunkers do
-    resources :trips, only: [:create]
+    collection do
+      get 'index_host', as: "host"
+    end
+    resources :trips, only: [:new, :create]
   end
 
-  get "bunkers/:id/booking", to: "bunkers#booking", as: "booking"
 
   resources :trips, only: [:update, :edit, :destroy, :show, :index] do
     member do
       get 'confirmation'
+      patch 'approve'
     end
   end
 
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-mount Attachinary::Engine => "/attachinary"
+  mount Attachinary::Engine => "/attachinary"
 
 end
 

@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20171124132126) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "features", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -71,6 +72,8 @@ ActiveRecord::Schema.define(version: 20171124132126) do
     t.datetime "updated_at", null: false
   end
 
+=======
+>>>>>>> 9b1f8c16edd31c6a67a9b235e4598ed937058387
   create_table "messages", force: :cascade do |t|
     t.string "header"
     t.text "content"
@@ -91,6 +94,7 @@ ActiveRecord::Schema.define(version: 20171124132126) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approved", default: false
     t.index ["bunker_id"], name: "index_trips_on_bunker_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end

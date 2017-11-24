@@ -18,7 +18,6 @@
 #   # don't forget to add user
 # end
 Bunker.destroy_all
-Location.destroy_all
 User.destroy_all
 
 urls = [
@@ -28,9 +27,7 @@ urls = [
 
 new_user = User.new(email: 'admin@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Survival Center', description: "Thick walls and steel reinforcement", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Survival Center', description: "Thick walls and steel reinforcement", price: 500, size: 500, address: "1109 E 93 Street", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -42,11 +39,10 @@ urls = [
 
 new_user = User.new(email: 'admin1@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Desert Abode', description: "Cryopreservation tanks included", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Desert Abode', description: "Cryopreservation tanks included", price: 500, size: 500, address: "16 Ladeira da Gloria", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
+
 
 puts "======> created #{new_user.email} and #{bunker.name}"
 
@@ -56,9 +52,7 @@ urls = [
 
 new_user = User.new(email: 'admin2@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Strongest Bunker from WWII', description: "Certified inpenetrable", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Strongest Bunker from WWII', description: "Certified inpenetrable", price: 500, size: 500, address: "16 Villa Gaudlet", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -69,9 +63,7 @@ urls = [
 
 new_user = User.new(email: 'admin3@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Discount Damaged Bunker', description: "Push upright and good to go", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Discount Damaged Bunker', description: "Push upright and good to go", price: 500, size: 500, address: "267 9th street", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
@@ -82,63 +74,61 @@ urls = [
 
 new_user = User.new(email: 'admin4@gmail.com', password: 'admin123')
 new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Sunken House', description: "Underground luxury", price: 500, size: 500, location: new_location, user: new_user)
+bunker = Bunker.new(name: 'Sunken House', description: "Underground luxury", price: 500, size: 500, address: "33 Pheng Geck Avenue", user: new_user)
 bunker.photo_urls = urls
 bunker.save!
 
 puts "======> created #{new_user.email} and #{bunker.name}"
 
-urls = [
-'https://thespaces.com/wp-content/uploads/2017/05/Hamburg-bunker-Hilldegarden-3-1050x680.jpg']
+# urls = [
+# 'https://thespaces.com/wp-content/uploads/2017/05/Hamburg-bunker-Hilldegarden-3-1050x680.jpg']
 
-new_user = User.new(email: 'admin5@gmail.com', password: 'admin123')
-new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Ecofriendly Design', description: "Trees supply oxygen", price: 500, size: 500, location: new_location, user: new_user)
-bunker.photo_urls = urls
-bunker.save!
+# new_user = User.new(email: 'admin5@gmail.com', password: 'admin123')
+# new_user.save!
+# new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
+# new_location.save!
+# bunker = Bunker.new(name: 'Ecofriendly Design', description: "Trees supply oxygen", price: 500, size: 500, location: new_location, user: new_user)
+# bunker.photo_urls = urls
+# bunker.save!
 
-puts "======> created #{new_user.email} and #{bunker.name}"
+# puts "======> created #{new_user.email} and #{bunker.name}"
 
-urls = [
-'http://www.floornature.com/media/photos/30/6586/7_bunker-599-from-architecture-to-monument_popup.jpg']
+# urls = [
+# 'http://www.floornature.com/media/photos/30/6586/7_bunker-599-from-architecture-to-monument_popup.jpg']
 
-new_user = User.new(email: 'admin6@gmail.com', password: 'admin123')
-new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Home of the Hobbits', description: "Live your LOTR fantasies", price: 500, size: 500, location: new_location, user: new_user)
-bunker.photo_urls = urls
-bunker.save!
+# new_user = User.new(email: 'admin6@gmail.com', password: 'admin123')
+# new_user.save!
+# new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
+# new_location.save!
+# bunker = Bunker.new(name: 'Home of the Hobbits', description: "Live your LOTR fantasies", price: 500, size: 500, location: new_location, user: new_user)
+# bunker.photo_urls = urls
+# bunker.save!
 
-puts "======> created #{new_user.email} and #{bunker.name}"
+# puts "======> created #{new_user.email} and #{bunker.name}"
 
-urls = [
-'https://www.vinschgau.net/media/edbad06f-a3ce-4139-86cf-02ca59e2f542/735_x_440/p=8/sehenswuerdigkeiten-bunker-reschenpass-vinschgau-ks.jpg']
+# urls = [
+# 'https://www.vinschgau.net/media/edbad06f-a3ce-4139-86cf-02ca59e2f542/735_x_440/p=8/sehenswuerdigkeiten-bunker-reschenpass-vinschgau-ks.jpg']
 
-new_user = User.new(email: 'admin7@gmail.com', password: 'admin123')
-new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'Piercing Design', description: "Protects against squatters", price: 500, size: 500, location: new_location, user: new_user)
-bunker.photo_urls = urls
-bunker.save!
+# new_user = User.new(email: 'admin7@gmail.com', password: 'admin123')
+# new_user.save!
+# new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
+# new_location.save!
+# bunker = Bunker.new(name: 'Piercing Design', description: "Protects against squatters", price: 500, size: 500, location: new_location, user: new_user)
+# bunker.photo_urls = urls
+# bunker.save!
 
-puts "======> created #{new_user.email} and #{bunker.name}"
+# puts "======> created #{new_user.email} and #{bunker.name}"
 
-urls = [
-'https://flavorwire.files.wordpress.com/2012/09/villa-vars-1-1.jpeg']
+# urls = [
+# 'https://flavorwire.files.wordpress.com/2012/09/villa-vars-1-1.jpeg']
 
-new_user = User.new(email: 'admin8@gmail.com', password: 'admin123')
-new_user.save!
-new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
-new_location.save!
-bunker = Bunker.new(name: 'James Bond Bunker', description: "Stock of ICBMs included", price: 500, size: 500, location: new_location, user: new_user)
-bunker.photo_urls = urls
-bunker.save!
+# new_user = User.new(email: 'admin8@gmail.com', password: 'admin123')
+# new_user.save!
+# new_location = Location.new(longitude: 100, latitude: 100, country: 'US')
+# new_location.save!
+# bunker = Bunker.new(name: 'James Bond Bunker', description: "Stock of ICBMs included", price: 500, size: 500, location: new_location, user: new_user)
+# bunker.photo_urls = urls
+# bunker.save!
 
-puts "======> created #{new_user.email} and #{bunker.name}"
+# puts "======> created #{new_user.email} and #{bunker.name}"
 
