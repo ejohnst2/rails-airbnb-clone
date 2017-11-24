@@ -1,30 +1,35 @@
 <div class="container">
 
   <div class="row">
-    <h2>Your booking at <%= link_to @trip.bunker.name, bunker_path(@trip.bunker) %> has been sent to host for approval</h2>
+    <center><h1 class=highlight>Booking Sent</h1></center>
+
+    <center><h3>Your booking at <%= link_to @trip.bunker.name, bunker_path(@trip.bunker) %> has been sent to host for approval</h3></center>
+    <br>
   </div>
 
   <div class="wrapper" id="itinerary">
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="centered-item">
-          <h4>Booking date:  <%= @trip.booking_date %></h4>
-          <h4>Check in date: <%= @trip.start_date %></h4>
-          <h4>Check out date:  <%= @trip.end_date %></h4>
-          <h4>Length of Stay: <%= (@trip.end_date - @trip.start_date).to_i %> nights</h4>
-          <h4>Nightly Price: <%=@trip.bunker.price %></h4>
-          <h4>Booking Total: <%= @trip.bunker.price  *  (@trip.end_date - @trip.start_date).to_i %></h4>
+          <h3>Booking Details</h3>
+          <strong><h5>Booking Date:</strong>  <%= @trip.booking_date %></h4>
+          <strong><h5>Start Date:</strong> <%= @trip.start_date %></h4>
+          <strong><h5>Expiration Date:</strong>  <%= @trip.end_date %></h4>
+          <strong><h5>Length of Stay:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</h4>
+          <strong><h5>Nightly Price: </strong><%=@trip.bunker.price %></h4>
+          <strong><h5>Booking Total:</strong> $<%= @trip.bunker.price  *  (@trip.end_date - @trip.start_date).to_i %></h4>
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
       <%= cl_image_tag @trip.bunker.photos.first.path %>
     </div>
 
   </div>
-
+<br>
   <div class="row">
-    <h3>Thanks <%= @trip.user.first_name %> for choosing Thrivalist! We have sent a confirmation to <%= @trip.user.email %>.</h3>
+    <center><h4>Thanks <%= @trip.user.first_name %> for choosing Thrivalist! We have sent a confirmation to <%= @trip.user.email %>.</h4></center>
+    <br>
   </div>
 
 </div>

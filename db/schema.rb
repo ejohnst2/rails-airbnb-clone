@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124133817) do
+ActiveRecord::Schema.define(version: 20171124134725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachinary_files", force: :cascade do |t|
+  create_table "attachinary_files", id: :serial, force: :cascade do |t|
     t.string "attachinariable_type"
-    t.bigint "attachinariable_id"
+    t.integer "attachinariable_id"
     t.string "scope"
     t.string "public_id"
     t.string "version"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20171124133817) do
     t.integer "height"
     t.string "format"
     t.string "resource_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
   create_table "bunkers", force: :cascade do |t|
@@ -35,9 +36,9 @@ ActiveRecord::Schema.define(version: 20171124133817) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
+    t.string "description"
     t.string "name"
-    t.string "short_description"
+    t.text "detailed_description"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
