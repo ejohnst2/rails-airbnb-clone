@@ -3,8 +3,8 @@ class BunkersController < ApplicationController
   # GET /bunkers
   # GET /bunkers.json
   def index
-    @bunkers = Bunker.all
-    # @bunkers = Bunker.where.not(latitude: nil, longitude: nil)
+    @bunkers = Bunker.search(params[:query])
+
     @markers = Gmaps4rails.build_markers(@bunkers) do |bunker, marker|
       marker.lat bunker.latitude
       marker.lng bunker.longitude
