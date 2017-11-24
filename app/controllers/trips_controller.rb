@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation]
+  before_action :set_trip, only: [:edit, :show, :update, :destroy, :confirmation, :approve]
 
   def new
     @bunker =  Bunker.find(params[:bunker_id])
@@ -23,6 +23,11 @@ class TripsController < ApplicationController
   end
 
   def confirmation
+  end
+
+  def approve
+    @trip.update({approved: params[:approved]})
+    redirect_to host_bunkers_path
   end
 
   def edit
