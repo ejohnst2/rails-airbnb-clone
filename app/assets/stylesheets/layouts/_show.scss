@@ -2,12 +2,25 @@
     max-width: 1200px;
     margin: 10px auto;
     padding: 16px;
+    background: #F7F7F7;
     border-radius: 1%;
     -moz-box-shadow: 0 0 30px 5px #999;
 -webkit-box-shadow: 0 0 30px 5px #999;
 color: #555;
 // font-family: 'Oxygen', sans-serif;
 }
+
+#FeaturesFor {
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 16px;
+    border-radius: 1%;
+    -moz-box-shadow: 0 0 30px 5px #999;
+-webkit-box-shadow: 0 0 30px 5px #999;
+color: #555;
+// font-family: 'Oxygen', sans-serif;
+}
+
 
 #LocationFor {
     max-width: 1140px;
@@ -18,7 +31,7 @@ color: #555;
     -moz-box-shadow: 0 0 30px 5px #999;
 -webkit-box-shadow: 0 0 30px 5px #999;
 color: #555;
-margin-bottom: 20px;
+margin-bottom: 20px,
 }
 
 .feature{
