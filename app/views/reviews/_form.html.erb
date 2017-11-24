@@ -1,7 +1,8 @@
-
 <%= simple_form_for([ bunker, review ], remote: true) do |form| %>
 <%= form.error_notification %>
 <div class="form-inputs">
+  <h4>Write a Review</h4>
+  <br>
   <%= form.input :content, as: :text %>
   <%= form.input :rating, as: :integer %>
 </div>
