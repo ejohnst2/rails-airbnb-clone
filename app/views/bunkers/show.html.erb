@@ -14,48 +14,35 @@
 <!-- Description of Bunker -->
 
 <div class="container">
-  <div class="row">
   <div class="page-header">
-    <h1><%= @bunker.name %> <small> <%= @bunker.description %> </small> </h1>
-    <h3>
-      <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Arctic</font></font></span>
-      <span class="divider"></span>
-      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%= @bunker.city %></font></font></a>
-      <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%= @bunker.country %></font></font></a>
-    </h3>
-  </div>
-</div>
+    <center><h1 class="highlight"><%= @bunker.name %> </center>
+      <center><h4><%= @bunker.description%></h4> </center>
+      <br>
 
-
- <!-- Description of Bunker -->
-
-  <div class="row">
-   <p id="DescriptionFor"><%= @bunker.description %></p>
- </div>
 
  <!-- Specs of Bunker -->
 
     <div class="row" id="SpecificationsFor">
-      <h2>Bunker Specs</h2>
-      <p><strong>Price: </strong>$<%= @bunker.price %> per night</p>
-      <p><strong>Size: </strong><%= @bunker.size %> square meters</p>
+      <h4>Bunker Specs</h4>
+      <p><strong id="heavy">Additional Information: </strong> <%= @bunker.detailed_description %></p>
+      <p><strong id="heavy">Price: </strong> $<%= @bunker.price %>/night</p>
+      <p><strong id="heavy">Size: </strong><%= @bunker.size %>m²</p>
     </div>
 
  <!-- Features of Bunker -->
+ <br>
 
- <div class="row">
-  <h2 id="FeaturesFor"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
-</div>
-
-  <div class="row">
+ <div class="row" id="SpecificationsFor">
+  <h4 id="FeaturesFor"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h4>
     <%= render 'features_set' %>
   </div>
-
+</div>
+<!--     <%= render 'features_set' %>
+ -->
 <!-- Location -->
 
     <div class="row" id="LocationFor">
-      <h2>Where is it</h2>
-      <p><strong>Location: </strong><%= @bunker.longitude %>, <%= @bunker.latitude %>, <%#= @bunker.location.country %></p>
+      <h4>Where is it</h4>
       <div id="map" style="width: 100%; height: 600px;"></div>
     </div>
   </div>
@@ -64,11 +51,13 @@
 
 <!-- Links and Footer -->
 
-<%= link_to 'View More Bunkers', bunkers_path %>
+<center><%= link_to 'View More Bunkers |', bunkers_path %>
 <% if @bunker.user == @user %>
         <%= link_to 'Edit', edit_bunker_path(@bunker) %>
 <% end %>
-
+</center>
+<br>
+<br>
 <% content_for(:after_js) do %>
         <%= javascript_tag do %>
         var handler = Gmaps.build('Google');
