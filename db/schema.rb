@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20171124134725) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "bunker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bunker_id"], name: "index_reviews_on_bunker_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "bunker_id"
@@ -107,6 +116,7 @@ ActiveRecord::Schema.define(version: 20171124134725) do
   add_foreign_key "bunkers", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "bunkers"
   add_foreign_key "trips", "bunkers"
   add_foreign_key "trips", "users"
 end
