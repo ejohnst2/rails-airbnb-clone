@@ -16,7 +16,7 @@
           <strong><h5>Start Date:</strong> <%= @trip.start_date %></h4>
           <strong><h5>Expiration Date:</strong>  <%= @trip.end_date %></h4>
           <strong><h5>Length of Stay:</strong> <%= (@trip.end_date - @trip.start_date).to_i %> nights</h4>
-          <strong><h5>Nightly Price: </strong><%=@trip.bunker.price %></h4>
+          <strong><h5>Nightly Price: </strong> $<%=@trip.bunker.price %></h4>
           <strong><h5>Booking Total:</strong> $<%= @trip.bunker.price  *  (@trip.end_date - @trip.start_date).to_i %></h4>
         </div>
     </div>

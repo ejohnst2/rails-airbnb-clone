@@ -1,16 +1,4 @@
-<div class="container">
-      <div class="row">
-          <div class="card-reservation"
-            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-            url('<%= cl_image_path @trip.bunker.photos[0].path %>')">
-            <div class="card-category"><%= @trip.bunker.location.country %></div>
-            <div class="card-description">
-              <h2><%= @trip.start_date %></h2>
-              <p></p>
-            </div>
-        </div>
-      </div>
-    </div>
+
     <div class="container">
       <div>
         <center><h1 class=highlight>Reservation Details</h1></center>
@@ -21,21 +9,27 @@
 
       <div>
         <p>Bunker size: <%= @trip.bunker.size %></p>
-        <p>Price:       <%= @trip.bunker.price %>
+        <p>Price:     $ <%= @trip.bunker.price %>
       </div>
       <div>
-        <p>Location details(To be replaced with map)</p>
-        <p>Country: <%= @trip.bunker.location.country %></p>
-        <p>City: <%= @trip.bunker.location.city %></p>
-        <p>Numbver: <%= @trip.bunker.location.number %></p>
-        <p>Street: <%= @trip.bunker.location.street_name %></p>
-        <p>Zip: <%= @trip.bunker.location.zip %></p>
-      </div>
+        <p>Location details</p>
+        <div id="map" style="width: 100%; height: 600px;"></div>
 
-        <center><% if @trip.bunker.user == @user %>
-        <%= link_to 'Edit', edit_trip_path(@trip) %>
-        <% end %>
-        <%= link_to 'Back', trips_path %></center>
+        <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+      handler.getMap().setZoom(14);
+    }
+  });
+  <% end %>
+  <% end %>
 
 </div>
 

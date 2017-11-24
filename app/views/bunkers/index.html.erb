@@ -15,6 +15,7 @@
                 <h2><%= bunker.name %></h2>
                 <p style="align">$<%= bunker.price %>/DAY</p>
               </div>
+              <%= image_tag facebook_image(bunker.user), class: "card-user" %>
               <%= link_to '', bunker_path(bunker), class: 'card-link' %>
             </div>
             <br>

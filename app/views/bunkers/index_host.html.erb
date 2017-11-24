@@ -1,84 +1,69 @@
 
-<br>
-<br>
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+  <br>
+  <br>
+  <p id="notice"><%= notice %></p>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-8 col-xs-6">
-      <br>
-      <center> <h1 class="highlight2">Bunkers</h1></center>
-      <br>
-      <div class="row">
-        <% @bunkers.each do |bunker| %>
-        <div class="col-l-4 col-xs-4 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path bunker.photos[0].path %>');">
-            <div class="card-category"><%= bunker.country %></div>
-            <div class="card-description">
-              <h2><%= bunker.name %></h2>
-              <p style="align">$<%= bunker.price %>/DAY</p>
-            </div>
-            <%= link_to '', bunker_path(bunker), class: 'card-link' %>
+
+  <div class="container">
+    <br>
+    <center> <h3>Your Bunkers</h3></center>
+    <br>
+    <div class="row">
+      <% @bunkers.each do |bunker| %>
+      <div class="col-l-4 col-xs-4 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path bunker.photos[0].path %>');">
+          <div class="card-category"><%= bunker.country %></div>
+          <div class="card-description">
+            <h2><%= bunker.name %></h2>
+            <p style="align">$<%= bunker.price %>/DAY</p>
           </div>
-          <br>
+          <%= image_tag facebook_image(bunker.user), class: "card-user" %>
+          <%= link_to '', bunker_path(bunker), class: 'card-link' %>
         </div>
-        <%end %>
-
       </div>
-      <center><%= link_to "List More Bunkers", new_bunker_path, :class => "button" %></center>
-      <br>
+      <%end %>
+    </div>
+    <center> <h3>Upcoming Trips At Your Bunkers</h3></center>
+    <div class="row">
+      <% @bunkers.each do |bunker| %>
+      <% bunker.trips.each do |trip| %>
+      <% if trip.approved == true %>
+      <div class="col-l-4 col-xs-4 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path trip.bunker.photos[0].path %>');">
+          <div class="card-category"><%= trip.bunker.country %></div>
+          <div class="card-description">
+            <h2><%= trip.bunker.name %></h2>
+            <p style="align"><%= trip.start_date %></p>
+            <p><%= trip.approved ? "Approved" : "Pending" %></p>
+          </div>
+          <%= link_to '', trip_path(trip), class: 'card-link' %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+
+    <center> <h3>Trips Awaiting Approval</h3></center>
+    <div class="row">
+      <% @bunkers.each do |bunker| %>
+      <% bunker.trips.each do |trip| %>
+      <% if trip.approved == false %>
+      <div class="col-l-4 col-xs-4 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path trip.bunker.photos[0].path %>');">
+          <div class="card-category"><%= trip.bunker.country %></div>
+          <div class="card-description">
+            <h2><%= trip.bunker.name %></h2>
+            <p style="align"><%= trip.start_date %></p>
+            <p><%= trip.approved ? "Approved" : "Pending" %></p>
+          </div>
+          <%= link_to '', approve_trip_path(trip, approved: true), method: :patch, class: 'card-link' %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-8 col-xs-6">
-      <center> <h1 class="highlight2">Upcoming Trips At Your Bunkers</h1></center>
-      <div class="row">
-        <% @bunkers.each do |bunker| %>
-          <% bunker.trips.each do |trip| %>
-            <div class="col-l-4 col-xs-4 col-sm-4">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path trip.bunker.photos[0].path %>');">
-                <div class="card-category"><%= trip.bunker.country %></div>
-                <div class="card-description">
-                  <h2><%= trip.bunker.name %></h2>
-                  <p style="align"><%= trip.start_date %></p>
-                </div>
-                <%= link_to '', trip_path(trip), class: 'card-link' %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-8 col-xs-6">
-      <center> <h1 class="highlight2">Upcoming Trips At Your Bunkers</h1></center>
-      <div class="row">
-        <% @bunkers.each do |bunker| %>
-          <% bunker.trips.each do |trip| %>
-            <% if trip.approved == false %>
-              <div class="col-l-4 col-xs-4 col-sm-4">
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path trip.bunker.photos[0].path %>');">
-                  <div class="card-category"><%= trip.bunker.country %></div>
-                  <div class="card-description">
-                    <h2><%= trip.bunker.name %></h2>
-                    <p style="align"><%= trip.start_date %></p>
-                  </div>
-                  <%= link_to '', approve_trip_path(trip, approved: true), method: :patch, class: 'card-link' %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
