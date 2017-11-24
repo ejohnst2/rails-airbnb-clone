@@ -25,6 +25,7 @@ class BunkersController < ApplicationController
       marker.lng bunker.longitude
     end
     @user = current_user
+    @review = Review.new
   end
 
   # GET /bunkers/new

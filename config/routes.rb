@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'index_host', as: "host"
     end
     resources :trips, only: [:new, :create]
+    resources :reviews, only: :create
   end
 
 
