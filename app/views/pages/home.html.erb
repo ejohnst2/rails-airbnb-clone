@@ -106,7 +106,7 @@
     <h2><%= bunker.name %></h2>
     <p><%= bunker.description %></p>
   </div>
-    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/anyuser">
+    <%= image_tag facebook_image(bunker.user), class: "card-user" %>
     <%= link_to '', bunker_path(bunker), { :class=>"card-link" } %>
 </div>
     </div>
