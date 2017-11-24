@@ -50,7 +50,7 @@ addresses = [
 new_user = User.new(email: 'bunkerboy@gmail.com', password: 'bunky123')
 new_user.save!
 
-7.times do
+1.times do
   urls = [ pictures.sample, pictures.sample, pictures.sample ]
   bunker = Bunker.new(
     name: "#{Faker::Zelda.location} Bunker",
