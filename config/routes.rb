@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :trips, only: [:update, :edit, :destroy, :show, :index] do
     member do
       get 'confirmation'
+      patch 'approve'
     end
   end
 
