@@ -6,12 +6,12 @@ User.destroy_all
 Feature.destroy_all
 
 features = [
-  Feature.create! (name: "Solar Power" , description: "Power from the sun makes everything fun." , fa_icon: "fa-sun-o" ),
-  Feature.create! (name: "Heating" , description: "When it gets cold, got to stay bold." , fa_icon: "fa-thermometer-three-quarters"),
-  Feature.create! (name: "Wi-Fi" , description: "Surf the net during the apocalypse." , fa_icon: "fa-wifi"),
-  Feature.create! (name: "Private Accomodation" , description: "Be selfish - have the bunker to yourself." , fa_icon: "fa-bed" ),
-  Feature.create! (name: "Fresh Water" , description: "Connected to a fresh water source." , fa_icon: "fa-tint" ),
-  Feature.create! (name: "Personal Chef" , description: "Comes equipped with personal robo-chef" , fa_icon: "fa-cutlery" ),
+  Feature.create!(name: "Solar Power", description: "Power from the sun makes everything fun.", fa_icon: "fa-sun-o"),
+  Feature.create!(name: "Heating", description: "When it gets cold, got to stay bold.", fa_icon: "fa-thermometer-three-quarters"),
+  Feature.create!(name: "Wi-Fi", description: "Surf the net during the apocalypse.", fa_icon: "fa-wifi"),
+  Feature.create!(name: "Private Accomodation", description: "Be selfish - have the bunker to yourself.", fa_icon: "fa-bed"),
+  Feature.create!(name: "Fresh Water", description: "Connected to a fresh water source.", fa_icon: "fa-tint"),
+  Feature.create!(name: "Personal Chef", description: "Comes equipped with personal robo-chef", fa_icon: "fa-cutlery")
 ]
 
 pictures = [
@@ -31,49 +31,71 @@ pictures = [
   'https://blazepress.com/.image/t_share/MTI4OTkzMjg2MDI2NDM5Mjk5/4.jpg',
   'http://cdn.cnn.com/cnnnext/dam/assets/170307122428-vivos-europa-one-germany-full-169.jpg',
   'https://www.unilad.co.uk/wp-content/uploads/2016/10/15125UNILAD-imageoptim-9955519384_cfb8ca0188_b.jpg',
-  'http://media.topito.com/wp-content/uploads/2015/09/abri1.jpg',
-  'http://static1.businessinsider.com/image/56b3b3ff6e97c62f008b4f64/if-youre-in-the-market-for-a-massive-cold-war-era-underground-nuclear-bunker-look-no-further.jpg',
-  'https://www.paintballgames.co.uk/wp-content/uploads/2017/04/apocalypse-bunker-1_0-1280x720.jpg',
-  'https://i.pinimg.com/originals/00/af/f1/00aff1b768eb41eba8a13e9cda3e1b3b.jpg',
-  'http://2ht1mik98ka4dogie28vqc4y.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/88-tactical-bunker-sleeping-quarters-004.jpg'
+  'http://media.topito.com/wp-content/uploads/2015/09/abri1.jpg'
 ]
 
+addresses = [
+  "16 Ladeira da Gloria",
+  "33 Pheng Geck Road",
+  "1109 E 93 street",
+  "Ladeira da Glória, 26",
+  "100 Century Ave, LuJiaZui",
+  "11 Wall St",
+  "Jl. Beji Ayu No.8",
+  "501 Yincheng Middle Rd",
+  "6 Rue de l'Amiral de Coligny",
+  "16 villa gaudlet, paris"
+]
 
-10.times do
+new_user = User.new(email: 'bunkerboy@gmail.com', password: 'bunky123')
+new_user.save!
+
+7.times do
   urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  new_user = User.new(email: 'bunkerboy@gmail.com', password: 'bunky123')
-  new_user.save!
   bunker = Bunker.new(
     name: "#{Faker::Zelda.location} Bunker",
-    description: "#{Faker::BackToTheFuture.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    detailed_description: "#{Faker::BossaNova.song} and #{Faker::Lorem.paragraphs}"
+    description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
+    detailed_description: "#{Faker::BossaNova.song} and #{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     size: rand(3000..10000),
-    address: "#{Faker::Address.street_address}",
+    address: addresses.sample,
     user: new_user
     )
+  p bunker
   bunker.features = features
   bunker.photo_urls = urls
   bunker.save!
   puts "======> created #{new_user.email} and #{bunker.name}"
 end
 
-10.times do
+new_user = User.new(email: 'bunkergirl@gmail.com', password: 'bunky123')
+new_user.save!
+
+7.times do
   urls = [ pictures.sample, pictures.sample, pictures.sample ]
-  new_user = User.new(email: 'bunkergirl@gmail.com', password: 'bunky123')
-  new_user.save!
   bunker = Bunker.new(
     name: "#{Faker::Zelda.location} Bunker",
-    description: "#{Faker::BackToTheFuture.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
-    detailed_description: "#{Faker::BossaNova.song} and #{Faker::Lorem.paragraphs}"
+    description: "#{Faker::LordOfTheRings.character}-style #{Faker::GameOfThrones.house} in #{Faker::LordOfTheRings.location}",
+    detailed_description: "#{Faker::BossaNova.song} and #{Faker::Lorem.paragraphs}",
     price: rand(40..1000),
     size: rand(3000..10000),
-    address: "#{Faker::Address.street_address}",
+    address: addresses.sample,
     user: new_user
     )
+  p bunker
   bunker.features = features
   bunker.photo_urls = urls
   bunker.save!
 
   puts "======> created #{new_user.email} and #{bunker.name}"
 end
+
+  # 'https://i.pinimg.com/originals/a9/cc/fd/a9ccfd413a89fb74c50fd072a68f421c.jpg',
+  # 'https://blazepress.com/.image/t_share/MTI4OTkzMjg2MDI2NDM5Mjk5/4.jpg',
+  # 'http://cdn.cnn.com/cnnnext/dam/assets/170307122428-vivos-europa-one-germany-full-169.jpg',
+  # 'https://www.unilad.co.uk/wp-content/uploads/2016/10/15125UNILAD-imageoptim-9955519384_cfb8ca0188_b.jpg',
+  # 'http://media.topito.com/wp-content/uploads/2015/09/abri1.jpg',
+  # 'http://static1.businessinsider.com/image/56b3b3ff6e97c62f008b4f64/if-youre-in-the-market-for-a-massive-cold-war-era-underground-nuclear-bunker-look-no-further.jpg',
+  # 'https://www.paintballgames.co.uk/wp-content/uploads/2017/04/apocalypse-bunker-1_0-1280x720.jpg',
+  # 'https://i.pinimg.com/originals/00/af/f1/00aff1b768eb41eba8a13e9cda3e1b3b.jpg',
+  # 'http://2ht1mik98ka4dogie28vqc4y.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/88-tactical-bunker-sleeping-quarters-004.jpg'
