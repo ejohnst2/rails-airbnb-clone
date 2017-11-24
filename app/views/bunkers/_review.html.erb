@@ -1,5 +1,6 @@
 <div id="reviews">
-  <% if @bunker.reviews.blank? %>
+          <h4>Reviews</h4>
+  <% if @bunker.reviews.empty? %>
     Be the first to leave a review for <%= @bunker.name %>
   <% else %>
     <% @bunker.reviews.each do |review| %>
