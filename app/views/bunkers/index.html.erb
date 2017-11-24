@@ -9,7 +9,7 @@
         <div class="row">
           <% @bunkers.each do |bunker| %>
           <div class="col-l-4 col-xs-4 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path bunker.photos[0].path %>');">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path bunker.photos[0].path if bunker.photos.any? %>');">
               <div class="card-category"><%= bunker.latitude %></div>
               <div class="card-description">
                 <h2><%= bunker.name %></h2>
@@ -27,7 +27,7 @@
         <br>
       </div>
       <div class="col-lg-4 col-xs-6">
-        <div id="map" style="width: 100%; height: 600px;"></div>
+        <div id="map" style="width: 100%; height: 540px;"></div>
 
         <% content_for(:after_js) do %>
         <%= javascript_tag do %>

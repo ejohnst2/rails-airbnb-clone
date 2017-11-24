@@ -45,7 +45,7 @@
 
   <div id="dynamic-menu-section">
     <span style="opacity: 1; cursor: pointer;">
-      <div id="dynamic-menu-item">
+      <div id="dynamic-menu-item-strong">
         <span id="dynamic-menu-span">
           <% if @bunker.user.id != current_user.id %>
             <%= link_to 'Message Host', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
@@ -57,7 +57,7 @@
 
 <div id="dynamic-menu-section">
   <span style="opacity: 1; cursor: pointer;">
- <div id="dynamic-menu-item">
+ <div id="dynamic-menu-item-strong">
         <span id="dynamic-menu-span"><%= link_to "Book Now", new_bunker_trip_path(@bunker) %></span>
       </div>
   </span>
@@ -66,6 +66,7 @@
 </div>
 </div>
 </div>
+
 
 <!-- { :class => "btn-default text-center" }
  -->
