@@ -1,0 +1,9 @@
+<div id="reviews">
+  <% if @bunker.reviews.blank? %>
+    Be the first to leave a review for <%= @bunker.name %>
+  <% else %>
+    <% @bunker.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>

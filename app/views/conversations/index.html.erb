@@ -12,7 +12,7 @@
             <% end %>
             <div class="message">
             <%= image_tag facebook_image(recipient), class: "avatar-large" %>
-            <%= link_to recipient.first_name,   conversation_messages_path(conversation)%>
+            <%= link_to 'View Conversation', conversation_messages_path(conversation)%>
             </div>
           <% end %>
         <% end %>
