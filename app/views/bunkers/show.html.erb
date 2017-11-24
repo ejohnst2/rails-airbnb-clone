@@ -10,11 +10,6 @@
 
 <%= render 'sticky_menu' %>
 
-<% if @bunker.user.id != current_user.id %>
-  <div class=”divider btn-default”>
-    <%= @bunker.user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @bunker.user.id), method: :post %>
-  </div>
-<% end %>
 
 <!-- Description of Bunker -->
 
@@ -40,16 +35,16 @@
 
  <!-- Specs of Bunker -->
 
-    <div class="row">
+    <div class="row" id="SpecificationsFor">
       <h2>Bunker Specs</h2>
-      <p><strong>Price: </strong><%= @bunker.price %></p>
-      <p><strong>Size: </strong><%= @bunker.size %></p>
+      <p><strong>Price: </strong>$<%= @bunker.price %> per night</p>
+      <p><strong>Size: </strong><%= @bunker.size %> square meters</p>
     </div>
 
  <!-- Features of Bunker -->
 
  <div class="row">
-  <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
+  <h2 id="FeaturesFor"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">What you get</font></font></h2>
 </div>
 
   <div class="row">
@@ -58,10 +53,10 @@
 
 <!-- Location -->
 
-    <div class="row">
+    <div class="row" id="LocationFor">
       <h2>Where is it</h2>
-      <p id="LocationFor"><strong>Location: </strong><%= @bunker.longitude %>, <%= @bunker.latitude %>, <%#= @bunker.location.country %></p>
-      <div id="map"></div>
+      <p><strong>Location: </strong><%= @bunker.longitude %>, <%= @bunker.latitude %>, <%#= @bunker.location.country %></p>
+      <div id="map" style="width: 100%; height: 600px;"></div>
     </div>
   </div>
 </div>
