@@ -10,9 +10,10 @@ class Bunker < ApplicationRecord
 
   def self.search(query)
     if query.present?
-      Bunker.joins(:user).where("bunkers.name LIKE ? OR
-                                           users.first_name LIKE ? OR
-                                           users.last_name LIKE ?",
+      query = query.downcase
+      Bunker.joins(:user).where("lower(bunkers.name) LIKE ? OR
+                                           lower(users.first_name) LIKE ? OR
+                                           lower(users.last_name) LIKE ?",
                                            "%#{query}%",
                                            "%#{query}%",
                                            "%#{query}%")

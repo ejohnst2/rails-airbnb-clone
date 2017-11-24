@@ -45,6 +45,11 @@ class TripsController < ApplicationController
 
   def show
     @user = current_user
+    @markers = Gmaps4rails.build_markers([@trip.bunker]) do |bunker, marker|
+      marker.lat bunker.latitude
+      marker.lng bunker.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def index
