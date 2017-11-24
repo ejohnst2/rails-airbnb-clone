@@ -5,8 +5,13 @@ class Bunker < ApplicationRecord
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :trips, dependent: :destroy
+  has_and_belongs_to_many :features
   has_many :reviews, dependent: :destroy
   validates :price, :size, :name, :description, :address, presence: true, allow_blank: false
+
+  # don't forget to add user
+  # geocoded_by :location
+  # after_validation :geocode, if: :location_changed?
 
   def self.search(query)
     if query.present?
@@ -21,6 +26,5 @@ class Bunker < ApplicationRecord
       Bunker.all
     end
   end
-
 end
 

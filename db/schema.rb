@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171124134725) do
 
   # These are extensions that must be enabled in order to support this database
@@ -48,9 +49,26 @@ ActiveRecord::Schema.define(version: 20171124134725) do
     t.index ["user_id"], name: "index_bunkers_on_user_id"
   end
 
+  create_table "bunkers_features", id: false, force: :cascade do |t|
+    t.bigint "bunker_id"
+    t.bigint "feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bunker_id"], name: "index_bunkers_features_on_bunker_id"
+    t.index ["feature_id"], name: "index_bunkers_features_on_feature_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "fa_icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
