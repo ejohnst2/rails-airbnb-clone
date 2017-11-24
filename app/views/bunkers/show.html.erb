@@ -61,7 +61,13 @@
   </div>
 </div>
 
-
+<!-- Reviews -->
+<div class="row">
+  <%= render 'review' %>
+</div>
+<div class="row">
+  <%= render 'reviews/form', bunker: @bunker, review: @review %>
+</div>
 <!-- Links and Footer -->
 
 <%= link_to 'View More Bunkers', bunkers_path %>

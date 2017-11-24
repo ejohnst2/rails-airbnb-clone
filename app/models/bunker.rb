@@ -5,6 +5,7 @@ class Bunker < ApplicationRecord
   belongs_to :user
   has_attachments :photos, maximum: 10
   has_many :trips, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   validates :price, :size, :name, :description, :address, presence: true, allow_blank: false
 
   def self.search(query)
